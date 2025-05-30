@@ -2,7 +2,7 @@
 
 \title{
     {Working Principles Of Proof Assistants And Formalization Of Some Proofs in Agda}\\
-    {\large Suprevisior : K.B manandar}\\
+    {\large Supervisor : K.B manandar}\\
 
 
     }
@@ -16,18 +16,18 @@
 \section{Introduction}
 In 1998 Thomas C. Hales announced that he had proved the kepler conjecture in 1998 (Solane,1998) However the peer review took over 4 years especially due to the proof being incredibely difficult to check , with over a dozen of mathematician to refree the proof and although 
 they were 99\% certain it was not untill the proof became formalized that they were able to completely validate the correctness of the proof, which according to Thomas Hales would have taken 20 person-year of manual work.(Szpiro, G, 2003)
-Proof assistants helps with formalization of mathematical proofs in computer which enables for faster proofs computations.\\
-Some proofs could have many many special cases which isn't easy to figureout using tradational methods, but with the use of proof assistant these cases can easily be accounted for.
-Proof assistant aren't just about guiding with complicated proofs but also can help to check if the proof that is written is correct especially for those long and tedious proofs.
-
-
+Proof assistants helps with formalization of mathematical proofs in computer which enables for their verification digitally.
+Some exhaustive proofs may contain large number of cases which is not feasible to write and verify manually and requires computer assitance.\\ 
+Such Proof assistants(systems) work by treating proofs as computational objects and checking them using strict logical rules. To enable this, proofs must be written in a formal language that removes ambiguity and allows machines to interpret them accurately. Underlying this process is a theoretical framework—often type theory—that defines how propositions and proofs relate to each other.
+\\
+This method bridges programming and logic: writing a proof resembles writing a program, and verifying it is like type-checking. By interpreting logic computationally, proof assistants ensure that every proof is exact, complete, and verifiable by a machine. This project invloves investigating this process. Among all available proof assistants Agda was chosen for this project due to its constructive nature and minimal yet expressive language.
 \section{Problem statement}
-This projects aims to design and implementat Haskell-Based proof assistant software and formalize some  of the proofs of linear Algebra. Leveraging Haskell's strong type system and its purely functional nature.
+Proof assistants are reliable tools for verification of formal mathematical theorems and computer programs. This project aims to analyze the theoretical foundations of such, and investigates the connection between mathematical proofs and computer programs through the Curry Howard Correspondence. On practice, this project will demonstrate the use of Agda, a proof assistant by formalizing some well known proofs and dissect the verification process in Agda, through lens of Dependent Type Theory on which it is based upon. 
 \section{Research objectives}
 \begin{enumerate}
-    \item To Investigate the current exsisting proof assistant software and identify the mathematics behind them.
-    \item To implementat Intuitionistic type theory and apply the logic of constructivism.
-    \item To formalize some selected proofs of Linear Algebra
+    \item To explore the correspondence between Proofs and Programs, Type Theory and Intuitionstic Logic.
+    \item To investigate a current exsisting proof assistant (Agda) and identify the mathematics behind it.
+    \item To formalize some selected proofs in Agda and demonstrate verification process.
 \end{enumerate}
 \section{Literature Review}
 Proof assistant rely extremely heavily on the type of logic it is coded on, for example 
@@ -38,22 +38,24 @@ We will also be inverstigating how to formalize some proofs in one of the proof 
 \section{Expected Outcomes}
 Learning indepth about type theory, curry-howard correospondance and formalization of some proofs.  
 \section{Significiance}
-Being able to Formalze proofs in compute
+Writing proofs in a formal language introduces more rigor and reduces ambiguity. A formally written proof in proof assitants enables them to be treated as executable code. This allows it to be checked or verified mechanically. This way we can offload trust from a human reader to a computer which applies logic rules without oversight, reducing errors in writing and verifying proofs for mathematical theorems.
+On the other side, with the same theoretical base, treating programs written in some programming language and verifying them or checking their correctness like proofs introduces a stronger reliablity on them. This makes codes written for sensitive applications secure and assures that they work as intended.
+
 \section{Work Plan}
 \begin{center}
     \begin{tabular}{|c|c|}
         \hline
         Week & Work plan \\
         \hline
-         1 & understanding the various simple type theory models \\
+         1 & Understanding (Dependent) Type Theory and Proof Theory\\
         \hline
-         2 & understanding the implementation of type theory models in digital proof assistant \\
+         2 & Understanding the implementation of type theory models in digital proof assistant \\
         \hline
          3 & Understanding Purely functional Programming paradigm and $ \lambda $-calculus\\
         \hline
-         4 & Working Principles of agda and its core implementation \\
+         4 & Working Principles of Agda and its core implementation \\
         \hline 
-         5 & Implementation of some proofs in agda \\
+         5 & Formalization of some proofs in Agda \\
         \hline
 
 
