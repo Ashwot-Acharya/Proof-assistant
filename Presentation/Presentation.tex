@@ -1,0 +1,152 @@
+\documentclass{beamer}
+
+\usetheme{Berlin}  
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}  
+\usepackage{amsmath}   
+\usepackage{hyperref}  
+\usepackage{url}       
+\usepackage{cite}        
+
+
+\title{Working Principles of Proof Assitants and Formalization of Some Proofs in Agda}
+\author{Ashwot Acharya, Bishesh Bohora, Supreme Chaudary}
+\institute{Kathmandu University}
+\date{\today} 
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+\end{frame}
+
+\section{Introduction And Motivation}
+
+\begin{frame}{Introduction}
+    As the title suggests, our project will revolve around exploration of theoritical fondations behind Proof Assitants and practice them.
+
+    
+\end{frame}
+
+\begin{frame}{Proof Assistants}
+        In computer science and mathematical logic, a proof assistant or interactive theorem prover is a software tool to assist with the development of formal proofs by human–machine collaboration.\cite{wikipedia_proof_assistant} 
+
+        Examples:
+        \begin{itemize}
+            \item Coq
+            \item LEAN 
+            \item Agda
+        \end{itemize}
+\end{frame}
+\begin{frame}{History}
+\begin{itemize}
+  \item \textbf{Gödel’s Incompleteness Theorems (1930s)}: Revealed limitations of formal systems; sparked interest in formal logic and verification.
+
+  \item \textbf{ Computability Theory (1940s–50s)}: Turing machines and $\lambda$-calculus laid the groundwork for mechanized reasoning.
+\item \textbf{Logic Theorist (1954)}: First automated theorem prover by Newell and Simon, capable of proving theorems in propositional logic.
+
+  \item \textbf{LISP (1960)}: A symbolic programming language created by John McCarthy; became essential for early theorem proving systems.
+
+   \item \textbf{Automath (1967)}: First system to check mathematical proofs using dependent types.
+ 
+  
+\end{itemize}
+\end{frame} 
+\begin{frame}
+
+\begin{itemize}
+   \item \textbf{LCF \& ML (1970s)}: Introduced tactic-based proofs and the ML programming language; foundational to later systems.
+  
+  \item \textbf{Coq (1986)}: A proof assistant based on constructive type theory, supporting verified programming and formal proofs.
+  
+  \item \textbf{Isabelle (1989)}: Generic theorem prover with support for multiple logics and strong automation tools.
+
+  \item \textbf{Four-Color Theorem (1996)}: First major mathematical theorem re-verified by proof assistants (Coq and HOL).
+  
+  \item \textbf{Feit-Thompson Theorem (2012)}: Large-scale group theory proof formalized in Coq, showcasing proof assistant capability.
+  
+  \item \textbf{Lean (2015-2023)}: Modern proof assistant combining type theory with performance and usability; popular in formal math via \texttt{mathlib}.
+  
+\end{itemize}
+\end{frame}
+\begin{frame}{Motivation}
+    \begin{itemize}
+  \item Strong interest in mathematics and formal reasoning.
+  \item Discovered type theory through internet memes on category theory.
+  \item Fascinated by the Four Colour Theorem and its computer-assisted proof.
+  \item The rise of AI raised the question: \textit{"How do computers understand reasoning?"}
+  \item Drawn to functional programming, which closely mirrors mathematical logic and structure.
+    
+\end{itemize}
+
+\end{frame}
+
+
+
+\section{Glance At Theoritical Foundations}
+\begin{frame}{Type Theory}
+\begin{itemize}
+  \item Type theory is a formal system that classifies expressions by their "types."
+  \item Originally developed as an alternative to set theory for foundations of mathematics.
+  \item Predecessor to Dependent Type Theory, Martin Löf Type Theory which form basis for various proof assitants.
+  \item Types prevent logical paradoxes and provide a basis for constructive reasoning.
+\end{itemize}
+\end{frame}
+\begin{frame}{Curry–Howard Correspondence}
+\begin{itemize}
+  \item A deep analogy between **logic and computation**:
+  \begin{itemize}
+    \item Propositions $\leftrightarrow$ Types
+    \item Proofs $\leftrightarrow$ Programs
+  \end{itemize}
+  \item A proof of a proposition is a program of a corresponding type.
+  \item Enables writing code that is **correct-by-construction**.
+  \item Fundamental to systems like Coq, where proving a theorem is like writing a program.
+\end{itemize}
+\end{frame}
+\begin{frame}{$\lambda$-Calculus and Functional Programming}
+    \begin{itemize}
+        \item \textbf{Lambda Calculus}: A minimal formal system for function definition and application; the foundation of computation theory.
+  \item \textbf{Functional Programming}: Directly inspired by lambda calculus; treats computation as evaluation of mathematical functions.
+
+  \item In proof assitants, Core logic is based on typed lambda calculus.
+      \item Tools like Coq and Agda embed functional languages with type theory.
+    \end{itemize}
+\end{frame}
+
+\section{Methodology and Tool}
+\begin{frame}{Methodology}
+    
+\end{frame}
+\begin{frame}{Agda}
+Agda is a functional programming language with dependent types. It is based on Martin Löf Type Theory. And most importantly it is a proof assitant.
+\cite{inproceedings}
+\end{frame}
+\begin{frame}{Why Agda?}
+\end{frame}
+
+\section{Work Plan}
+\begin{frame}{Work Plan}
+\end{frame}
+
+\section{Significance and Expected Outcomes}
+\begin{frame}{Significance}
+\end{frame}
+\begin{frame}{Expected Outcomes}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{References}
+\bibliographystyle{apalike}       
+\bibliography{references} 
+\end{frame}
+
+       
+
+\end{document}
