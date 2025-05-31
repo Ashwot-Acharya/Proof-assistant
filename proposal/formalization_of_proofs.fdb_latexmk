@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1748663381.43427 "/home/bs/Proof-assistant/proposal/formalization_of_proofs.tex" "formalization_of_proofs.pdf" "formalization_of_proofs" 1748663381.6134 0
-  "/home/bs/Proof-assistant/proposal/formalization_of_proofs.tex" 1748663381.25964 5155 067e505d5ee936ed3e823d7fc9dca83b ""
+["pdflatex"] 1748687430.25253 "/home/bs/Proof-assistant/proposal/formalization_of_proofs.tex" "formalization_of_proofs.pdf" "formalization_of_proofs" 1748687430.4222 0
+  "/home/bs/Proof-assistant/proposal/formalization_of_proofs.tex" 1748686564.65074 5150 b1070d479ee4236d8e1cd3f9b13159b5 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1742685315 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1742685315 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -24,8 +24,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1748537798 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1748537796 2008233 33e7d22d08888754f6b134c760a23e9d ""
-  "formalization_of_proofs.aux" 1748663381.59297 948 980855cf20785d3fa01f90e2ba573f30 "pdflatex"
-  "formalization_of_proofs.tex" 1748663381.25964 5155 067e505d5ee936ed3e823d7fc9dca83b ""
+  "formalization_of_proofs.aux" 1748687430.4015 948 980855cf20785d3fa01f90e2ba573f30 "pdflatex"
+  "formalization_of_proofs.tex" 1748686564.65074 5150 b1070d479ee4236d8e1cd3f9b13159b5 ""
   (generated)
   "formalization_of_proofs.aux"
   "formalization_of_proofs.log"
