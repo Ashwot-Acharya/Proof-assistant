@@ -1,0 +1,12 @@
+\begin{thebibliography}{}
+
+\bibitem[Bove et~al., 2009]{inproceedings}
+Bove, A., Dybjer, P., and Norell, U. (2009).
+\newblock A brief overview of agda – a functional language with dependent types.
+
+\bibitem[{Wikipedia}, 2025]{wikipedia_proof_assistant}
+{Wikipedia} (2025).
+\newblock Proof assistant --- wikipedia{,} the free encyclopedia.
+\newblock \url{https://en.wikipedia.org/wiki/Proof_assistant}.
+
+\end{thebibliography}

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1748754119.18539 "/home/ashwot/projects/proof-form/proposal/formalization_of_proofs.tex" "formalization_of_proofs.pdf" "formalization_of_proofs" 1748754119.41956 0
-  "/home/ashwot/projects/proof-form/proposal/formalization_of_proofs.tex" 1748754118.93116 7288 c7a2093c8ffd593eeb8c8b849e032b62 ""
+["pdflatex"] 1748754361.7929 "/home/ashwot/projects/proof-form/proposal/formalization_of_proofs.tex" "formalization_of_proofs.pdf" "formalization_of_proofs" 1748754362.03975 0
+  "/home/ashwot/projects/proof-form/proposal/formalization_of_proofs.tex" 1748754360.87451 7288 c7a2093c8ffd593eeb8c8b849e032b62 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1742685315 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1742685315 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -26,8 +26,8 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1747971282 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1747971202 2008240 f8ee7870502416f514fa9cfabeea2f5a ""
-  "formalization_of_proofs.aux" 1748754119.38782 948 5c1628e50464412ec342af74b700a6a0 "pdflatex"
-  "formalization_of_proofs.tex" 1748754118.93116 7288 c7a2093c8ffd593eeb8c8b849e032b62 ""
+  "formalization_of_proofs.aux" 1748754362.00784 948 5c1628e50464412ec342af74b700a6a0 "pdflatex"
+  "formalization_of_proofs.tex" 1748754360.87451 7288 c7a2093c8ffd593eeb8c8b849e032b62 ""
   (generated)
   "formalization_of_proofs.aux"
   "formalization_of_proofs.log"
