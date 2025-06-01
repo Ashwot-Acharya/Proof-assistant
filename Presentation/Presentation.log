@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.29)  31 MAY 2025 22:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2026/dev/Arch Linux) (preloaded format=pdflatex 2025.5.29)  1 JUN 2025 14:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -688,254 +688,259 @@ Dictionary: translator-numbers-dictionary, Language: English
 ) (/usr/share/texmf-dist/tex/latex/translator/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 ) (./Presentation.nav)
-Overfull \hbox (61.4309pt too wide) detected at line 19
+Overfull \hbox (16.98248pt too wide) detected at line 19
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
-Overfull \hbox (61.4309pt too wide) detected at line 23
+Overfull \hbox (16.98248pt too wide) detected at line 23
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 27
+Overfull \hbox (16.98248pt too wide) detected at line 27
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 (./Presentation.toc)
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [2
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 35
+Overfull \hbox (16.98248pt too wide) detected at line 35
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [3
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 46
+Overfull \hbox (16.98248pt too wide) detected at line 46
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [4
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 60
+Overfull \hbox (16.98248pt too wide) detected at line 56
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 60.
-(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 60.
- (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 60.
- (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
-)
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [5
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 77
+Overfull \hbox (16.98248pt too wide) detected at line 70
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+(/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+ (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for OT1+mathkerncmss on input line 70.
+ (/usr/share/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2020/01/31 Fontinst v1.933 font definitions for OT1/mathkerncmss.
+)
 
 
-
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [6
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 88
+Overfull \hbox (16.98248pt too wide) detected at line 87
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [7
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 100
+Overfull \hbox (16.98248pt too wide) detected at line 100
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [8
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 112
+Overfull \hbox (16.98248pt too wide) detected at line 112
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [9
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 121
+Overfull \hbox (16.98248pt too wide) detected at line 121
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [10
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 126
+Overfull \hbox (16.98248pt too wide) detected at line 126
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [11
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 130
+Overfull \hbox (16.98248pt too wide) detected at line 130
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [12
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 132
+Overfull \hbox (16.98248pt too wide) detected at line 132
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [13
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 136
+Overfull \hbox (16.98248pt too wide) detected at line 155
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
+ []
+
+
+Overfull \hbox (117.40457pt too wide) in paragraph at lines 155--155
+ [] 
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [14
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 140
+Overfull \hbox (16.98248pt too wide) detected at line 167
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [15
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 142
+Overfull \hbox (16.98248pt too wide) detected at line 177
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 [16
 
 ]
-Overfull \hbox (61.4309pt too wide) detected at line 148
+Overfull \hbox (16.98248pt too wide) detected at line 183
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
 (./Presentation.bbl)
 
 
-Overfull \hbox (61.4309pt too wide) has occurred while \output is active
+Overfull \hbox (16.98248pt too wide) has occurred while \output is active
   [] [][][][][][] [][][][] [][][][] [][] [][][] [][]  
  []
 
@@ -957,18 +962,18 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `Presentation.out' has not changed.
-(rerunfilecheck)             Checksum: 4E2180239B284CBE794EE69001A31667;956.
+(rerunfilecheck)             Checksum: B387B9B6632505345468C4DC76D689FE;875.
  ) 
 Here is how much of TeX's memory you used:
- 22014 strings out of 475171
- 423755 string characters out of 5767095
- 800668 words of memory out of 5000000
- 44503 multiletter control sequences out of 15000+600000
+ 22018 strings out of 475171
+ 423871 string characters out of 5767095
+ 800675 words of memory out of 5000000
+ 44507 multiletter control sequences out of 15000+600000
  571849 words of font info for 83 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  128i,19n,123p,425b,774s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on Presentation.pdf (17 pages, 158812 bytes).
+Output written on Presentation.pdf (17 pages, 160544 bytes).
 PDF statistics:
  1322 PDF objects out of 1440 (max. 8388607)
  871 compressed objects within 9 object streams

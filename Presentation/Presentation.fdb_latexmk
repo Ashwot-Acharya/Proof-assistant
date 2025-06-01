@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex Presentation"] 1748708775.95068 "Presentation.aux" "Presentation.bbl" "Presentation" 1748708778.31571 0
+["bibtex Presentation"] 0 "Presentation.aux" "Presentation.bbl" "Presentation" 1748768888.08466 -1
   "./references.bib" 1748708775.76664 718 14b3bc58c66f66732f3da5e1c468883c ""
   "/usr/share/texmf-dist/bibtex/bst/base/apalike.bst" 1742685315 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "Presentation.aux" 1748708778.14003 4766 9e7dec80f0ac1ffb17180fd502fb7e7d "pdflatex"
+  "Presentation.aux" 1748768887.87747 4721 5bd2e51d92495dfdc2c6714e0566f8ad "pdflatex"
   (generated)
   "Presentation.bbl"
   "Presentation.blg"
   (rewritten before read)
-["pdflatex"] 1748708776.02939 "/home/bs/Proof-assistant/Presentation/Presentation.tex" "Presentation.pdf" "Presentation" 1748708778.31586 0
-  "/home/bs/Proof-assistant/Presentation/Presentation.tex" 1748708739.61903 5443 d5c4de927adbf8402c5614c406922bd9 ""
+["pdflatex"] 1748768885.6541 "/home/bs/Proof-assistant/Presentation/Presentation.tex" "Presentation.pdf" "Presentation" 1748768888.0848 0
+  "/home/bs/Proof-assistant/Presentation/Presentation.tex" 1748768885.48747 7059 e5709f84100928a50d2aa62d08b7212e ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1742685315 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1742685315 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -212,12 +212,12 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1748537798 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1748537796 2008233 33e7d22d08888754f6b134c760a23e9d ""
-  "Presentation.aux" 1748708778.14003 4766 9e7dec80f0ac1ffb17180fd502fb7e7d "pdflatex"
-  "Presentation.bbl" 1748708776.01998 426 34d02ccd00f08df19b437e77e09b3090 "bibtex Presentation"
-  "Presentation.nav" 1748708778.14003 2830 a2ea420b8cc7d4bb1ca654d3e1646a80 "pdflatex"
-  "Presentation.out" 1748708778.14003 956 4e2180239b284cbe794ee69001a31667 "pdflatex"
-  "Presentation.tex" 1748708739.61903 5443 d5c4de927adbf8402c5614c406922bd9 ""
-  "Presentation.toc" 1748708778.14003 353 5f8a21b96c14c18978527d11134fa511 "pdflatex"
+  "Presentation.aux" 1748768887.87747 4721 5bd2e51d92495dfdc2c6714e0566f8ad "pdflatex"
+  "Presentation.bbl" 1748768351.00591 426 34d02ccd00f08df19b437e77e09b3090 "bibtex Presentation"
+  "Presentation.nav" 1748768887.8808 2800 88766a630fe33df1709912391e2b0082 "pdflatex"
+  "Presentation.out" 1748768887.8808 875 b387b9b6632505345468c4dc76d689fe "pdflatex"
+  "Presentation.tex" 1748768885.48747 7059 e5709f84100928a50d2aa62d08b7212e ""
+  "Presentation.toc" 1748768887.8808 338 a992a6085145e0b7bbd6881aa93bcd4b "pdflatex"
   (generated)
   "Presentation.aux"
   "Presentation.log"
