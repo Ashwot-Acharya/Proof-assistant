@@ -12,6 +12,8 @@ INPUT /usr/share/texmf-dist/tex/latex/hyphenat/hyphenat.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyphenat/hyphenat.sty
 INPUT /usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT /usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/share/texmf-dist/tex/latex/ntgclass/a4.sty
+INPUT /usr/share/texmf-dist/tex/latex/ntgclass/a4.sty
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./formalization_of_proofs.aux
