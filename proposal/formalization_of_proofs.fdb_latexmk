@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1748670020.29972 "/home/ashwot/projects/proof-form/proposal/formalization_of_proofs.tex" "formalization_of_proofs.pdf" "formalization_of_proofs" 1748670020.52663 0
-  "/home/ashwot/projects/proof-form/proposal/formalization_of_proofs.tex" 1748670020.09451 5141 ea7888758d29f5a8d1c7c95e0ffb8825 ""
+["pdflatex"] 1748754119.18539 "/home/ashwot/projects/proof-form/proposal/formalization_of_proofs.tex" "formalization_of_proofs.pdf" "formalization_of_proofs" 1748754119.41956 0
+  "/home/ashwot/projects/proof-form/proposal/formalization_of_proofs.tex" 1748754118.93116 7288 c7a2093c8ffd593eeb8c8b849e032b62 ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1742685315 1324 c910af8c371558dc20f2d7822f66fe64 ""
   "/usr/share/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1742685315 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -20,12 +20,14 @@
   "/usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb" 1742685315 32362 179c33bbf43f19adbb3825bb4e36e57a ""
   "/usr/share/texmf-dist/tex/latex/base/article.cls" 1742685315 20144 63d8bacaf52e5abf4db3bc322373e1d4 ""
   "/usr/share/texmf-dist/tex/latex/base/size10.clo" 1742685315 8448 5cf247d4bd0c7d5d711bbbdf111fae2e ""
+  "/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty" 1742685315 6078 f1cb470c9199e7110a27851508ed7a5c ""
+  "/usr/share/texmf-dist/tex/latex/hyphenat/hyphenat.sty" 1742685315 5798 0437b031e663035b68539cf7ac7c8eeb ""
   "/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def" 1742685315 29785 9f93ab201fe5dd053afcc6c1bcf7d266 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1747971282 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1747971202 2008240 f8ee7870502416f514fa9cfabeea2f5a ""
-  "formalization_of_proofs.aux" 1748670020.49785 948 980855cf20785d3fa01f90e2ba573f30 "pdflatex"
-  "formalization_of_proofs.tex" 1748670020.09451 5141 ea7888758d29f5a8d1c7c95e0ffb8825 ""
+  "formalization_of_proofs.aux" 1748754119.38782 948 5c1628e50464412ec342af74b700a6a0 "pdflatex"
+  "formalization_of_proofs.tex" 1748754118.93116 7288 c7a2093c8ffd593eeb8c8b849e032b62 ""
   (generated)
   "formalization_of_proofs.aux"
   "formalization_of_proofs.log"

@@ -1,8 +1,9 @@
 \documentclass{article}
-
+\usepackage{hyphenat}
+\usepackage{booktabs}
 \title{
     {Working Principles Of Proof Assistants And Formalization Of Some Proofs in Agda}\\
-    {\large Supervisor : K.B manandar}\\
+    {\large Supervisor: K.B manandar}\\
 
 
     }
@@ -14,15 +15,16 @@
 
 \pagebreak
 \section{Introduction}
-In 1998 Thomas C. Hales announced that he had proved the kepler conjecture (Solane,1998) However the peer review took over 4 years especially due to the proof being incredibely difficult to check , with over a dozen of mathematician to refree the proof and although 
-they were 99\% certain it was not untill the proof became formalized that they were able to completely validate the correctness of the proof, which according to Thomas Hales, would have taken 20 person-year of manual work.(Szpiro, G, 2003)
+In 1998 Thomas C. Hales announced that he had proved the kepler conjecture (Solane,1998) However the peer review took over 4 years especially due to the proof being incredibely difficult to check, with over a dozen of mathematician to refree the proof and although 
+they were 99\% certain it was not untill the proof became formalized that they were able to completely validate the correctness of the proof, which according to Thomas Hales, would have taken 20 person-year of manual work. (Szpiro, G, 2003)
 \\Proof assistants helps with formalization of mathematical proofs in computer which enables for their verification digitally.
 Some exhaustive proofs may contain large number of cases which is not feasible to write and verify manually and requires computer assitance.\\ 
-Such Proof assistants(systems) work by treating proofs as computational objects and checking them using strict logical rules. To enable this, proofs must be written in a formal language that removes ambiguity and allows machines to interpret them accurately. Underlying this process is a theoretical framework—often type theory—that defines how propositions and proofs relate to each other.
+Such Proof assistants (systems) work by treating proofs as computational objects and checking them using strict logical rules. To enable this, proofs must be written in a formal language that removes ambiguity and allows machines to interpret them accurately. Underlying this process is a theoretical framework—often type theory—that defines how propositions and proofs relate to each other.
 \\
 This method bridges programming and logic: writing a proof resembles writing a program, and verifying it is like type-checking. By interpreting logic computationally, proof assistants ensure that every proof is exact, complete, and verifiable by a machine. This project invloves investigating this process. Among all available proof assistants Agda was chosen for this project due to its constructive nature and minimal yet expressive language.
 \section{Problem statement}
-Proof assistants are reliable tools for verification of formal mathematical theorems and computer programs. This project aims to analyze the theoretical foundations of such, and investigates the connection between mathematical proofs and computer programs through the Curry Howard Correspondence. On practice, this project will demonstrate the use of Agda, a proof assistant by formalizing some well known proofs and dissect the verification process in Agda, through lens of Dependent Type Theory on which it is based upon. 
+Proof assistants are reliable tools for verification of formal mathematical theorems and computer programs. This project aims to analyze the theoretical foundations of such, and investigates the connection between mathematical proofs and computer programs through the Curry Howard Correspondence. On practice, this project will demonstrate the use of Agda, a proof assistant by formalizing some well known proofs and dissect the verification process in Agda, 
+through lens of Dependent Type Theory on which it is based upon. 
 \section{Research objectives}
 \begin{enumerate}
     \item To explore the correspondence between Proofs and Programs, Type Theory and Intuitionstic Logic.
@@ -30,7 +32,16 @@ Proof assistants are reliable tools for verification of formal mathematical theo
     \item To formalize some selected proofs in Agda and demonstrate verification process.
 \end{enumerate}
 \section{Literature Review}
-Proof assistant rely extremely heavily on the type of logic it is coded on, for example 
+Proofs or sometimes called the mathematical Proofs are at the foundation of all of mathematics and no mathematical reason are accepted unless they are proven by mathematical reasoning. The construction of proofs begins with initiation of terms, axioms and may bed dependent on previously proven
+theorems. Each statement in mathematical proofs must be correct which means to say that each step of the proof must be logically followed from its preceeding steps. (Grami Ali, 2023)\\
+Proof assistant are comnputer system designed to do mathematics but not in the computational sense but more towards the aspect of reasoning, proving and defining.
+In proof assistant a user can setuo a mathematical theory, defines its properities and be able to perform logical task on them.
+Most proof assistant now a days are used my professionals to formalize mathematical theories and prove them which is difficult as it requires adding lot of details for it to be valid
+in the assisting software. This step of writing proofs in a formal language is called the formalization of proofs. (H Geuvers, 2009)  \\ 
+The earliest work on computer assisted proof dates back to the 1950's and 1960s 
+[Davis,1957; Gilmore, 1960; Davis and Putnam, 1960; Wang, 1960; Prawitz et al., 1960] who were devoted to automated theorem proving. 
+Automated theorem proving but Interest in more interactive arrangement began later on when full automation became a much more difficult problem than supporting human guided proofs. (Harrison, Urban and Wiedijk ,2014) 
+Auto-Math is considered probably the earliest of the interactive theorem provers, and was the first one of the theorem Provers to use Curry-howard isomorphism.
 \section{Methodology}
 Investigating the  Coq and the agda proof assistant and assessing the Logic that each proof assistant use and how the proof assistant use such logic to help check if the proof is valid.
 We will also be inverstigating how to formalize some proofs in one of the proof assistant, and seeing how the logic holds in formalization of proofs. 
@@ -43,20 +54,20 @@ On the other side, with the same theoretical base, treating programs written in 
 
 \section{Work Plan}
 \begin{center}
-    \begin{tabular}{|c|c|}
-        \hline
+    \begin{tabular}{p{1cm} p{10cm} }
+        \toprule
         Week & Work plan \\
-        \hline
+        \toprule
          1 & Understanding (Dependent) Type Theory and Proof Theory\\
-        \hline
+        \midrule
          2 & Understanding the implementation of type theory models in digital proof assistant \\
-        \hline
+        \midrule
          3 & Understanding Purely functional Programming paradigm and $ \lambda $-calculus\\
-        \hline
+        \midrule
          4 & Working Principles of Agda and its core implementation \\
-        \hline 
+        \midrule 
          5 & Formalization of some proofs in Agda \\
-        \hline
+        \bottomrule
 
 
     \end{tabular}
@@ -66,9 +77,11 @@ On the other side, with the same theoretical base, treating programs written in 
 
 \section{Refrences}
 \begin{enumerate}
-    \item Sloane, N.J.A. (1998). Kepler's conjecture confirmed. Nature, 395(6701), pp.435-436 doi:https://doi.org/10.1038/26609.
-    \item Szpiro, G. (2003). Does the proof stack up? Nature, 424(6944), pp.12–13,  doi:https://doi.org/10.1038/424012a.
-
+    \item Sloane, N.J.A. (1998). Kepler's conjecture confirmed. Nature, 395(6701), pp.435\hyp{}436 doi:https://doi.org/10.1038/26609.
+    \item Szpiro, G. (2003). Does the proof stack up? Nature, 424(6944), pp.12\hyp{}3,  doi:https://doi.org/10.1038/424012a
+    \item Grami, A. (2022). Proof Methods. Elsevier eBooks, [online] pp.55\hyp{}65 doi:https://doi.org/10.1016/b978-0-12-820656-0.00004-6.
+    \item Geuvers, H. (2009). Proof assistants: History, ideas and future. Sadhana, 34(1), pp.3\hyp{}25 doi:https://doi.org/10.1007/s12046-009-0001-5.
+    \item Harrison, J, Urban, J. and Wiedijk, F. (2014). History of Interactive Theorem Proving. North-Holland, pp.135\hyp{}214.\\doi:https://doi.org/10.1016/B978-0-444-51624-4.50004-6
 \end{enumerate} 
 
 \end{document}
