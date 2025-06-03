@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex Presentation"] 0 "Presentation.aux" "Presentation.bbl" "Presentation" 1748768888.08466 -1
-  "./references.bib" 1748708775.76664 718 14b3bc58c66f66732f3da5e1c468883c ""
+["bibtex Presentation"] 0 "Presentation.aux" "Presentation.bbl" "Presentation" 1748919304.56312 -1
+  "./references.bib" 1748754266.6245 718 14b3bc58c66f66732f3da5e1c468883c ""
   "/usr/share/texmf-dist/bibtex/bst/base/apalike.bst" 1742685315 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "Presentation.aux" 1748768887.87747 4721 5bd2e51d92495dfdc2c6714e0566f8ad "pdflatex"
+  "Presentation.aux" 1748919304.32122 4766 9e7dec80f0ac1ffb17180fd502fb7e7d "pdflatex"
   (generated)
   "Presentation.bbl"
   "Presentation.blg"
   (rewritten before read)
-["pdflatex"] 1748768885.6541 "/home/bs/Proof-assistant/Presentation/Presentation.tex" "Presentation.pdf" "Presentation" 1748768888.0848 0
-  "/home/bs/Proof-assistant/Presentation/Presentation.tex" 1748768885.48747 7059 e5709f84100928a50d2aa62d08b7212e ""
+["pdflatex"] 1748919300.8407 "/home/ashwot/projects/proof-form/Presentation/Presentation.tex" "Presentation.pdf" "Presentation" 1748919304.56343 0
+  "/home/ashwot/projects/proof-form/Presentation/Presentation.tex" 1748919300.60789 7330 e84b75f90a29e812db0bc2d324601f0c ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1742685315 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1742685315 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1742685315 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -164,6 +164,7 @@
   "/usr/share/texmf-dist/tex/latex/beamer/beamerouterthememiniframes.sty" 1742685315 5157 f6fc0882917a6ad715583b4484f7db1e ""
   "/usr/share/texmf-dist/tex/latex/beamer/beamerthemeBerlin.sty" 1742685315 494 02d751e78c3cf00a22d37327debd888a ""
   "/usr/share/texmf-dist/tex/latex/beamer/beamerthemedefault.sty" 1742685315 345 b9f1afd5eccd808064d49a802f119443 ""
+  "/usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty" 1742685315 6078 f1cb470c9199e7110a27851508ed7a5c ""
   "/usr/share/texmf-dist/tex/latex/cite/cite.sty" 1742685315 26218 19edeff8cdc2bcb704e8051dc55eb5a7 ""
   "/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1742685315 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty" 1742685315 46850 d87daedc2abdc653769a6f1067849fe0 ""
@@ -210,6 +211,16 @@
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1742685315 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1742685315 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
+<<<<<<< HEAD
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1747971282 5311557 9da84c45f5b388655502706482323571 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1747971202 2008240 f8ee7870502416f514fa9cfabeea2f5a ""
+  "Presentation.aux" 1748919304.32122 4766 9e7dec80f0ac1ffb17180fd502fb7e7d "pdflatex"
+  "Presentation.bbl" 1748754266.62117 426 34d02ccd00f08df19b437e77e09b3090 "bibtex Presentation"
+  "Presentation.nav" 1748919304.32456 2830 a2ea420b8cc7d4bb1ca654d3e1646a80 "pdflatex"
+  "Presentation.out" 1748919304.32122 956 4e2180239b284cbe794ee69001a31667 "pdflatex"
+  "Presentation.tex" 1748919300.60789 7330 e84b75f90a29e812db0bc2d324601f0c ""
+  "Presentation.toc" 1748919304.32456 353 5f8a21b96c14c18978527d11134fa511 "pdflatex"
+=======
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1748537798 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1748537796 2008233 33e7d22d08888754f6b134c760a23e9d ""
   "Presentation.aux" 1748768887.87747 4721 5bd2e51d92495dfdc2c6714e0566f8ad "pdflatex"
@@ -218,6 +229,7 @@
   "Presentation.out" 1748768887.8808 875 b387b9b6632505345468c4dc76d689fe "pdflatex"
   "Presentation.tex" 1748768885.48747 7059 e5709f84100928a50d2aa62d08b7212e ""
   "Presentation.toc" 1748768887.8808 338 a992a6085145e0b7bbd6881aa93bcd4b "pdflatex"
+>>>>>>> fe6c1cb97f18b831b14aaf864d6fce144cf8b56c
   (generated)
   "Presentation.aux"
   "Presentation.log"

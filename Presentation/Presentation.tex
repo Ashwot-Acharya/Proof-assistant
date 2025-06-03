@@ -7,7 +7,8 @@
 \usepackage{amsmath}   
 \usepackage{hyperref}  
 \usepackage{url}       
-\usepackage{cite}        
+\usepackage{cite}
+\usepackage{booktabs}       
 
 
 \title{Working Principles of Proof Assistants and Formalization of Some Proofs in Agda}
@@ -122,17 +123,46 @@
 
 \section{Methodology and Tool}
 \begin{frame}{Methodology}
-    
+    \begin{itemize}
+      \item Investigating the Coq and the agda proof assistant
+      \item Assessing the logic behind each of these proof assistants
+      \item Investigating How to formalized proofs in Agda
+    \end{itemize}
 \end{frame}
 \begin{frame}{Agda}
 Agda is a functional programming language with dependent types. It is based on Martin Löf Type Theory. And most importantly it is a proof assistants.
 \cite{inproceedings}
 \end{frame}
 \begin{frame}{Why Agda?}
+  \begin{itemize}
+    \item Dependently Typed programming language
+    \item Fully embraces the Curry–Howard isomorphism
+    \item Minimal where users typically define the core logical construct from small set of primitives
+    \item Active Community
+  \end{itemize}
 \end{frame}
 
 \section{Work Plan}
 \begin{frame}{Work Plan}
+<<<<<<< HEAD
+      \begin{tabular}{p{1cm} p{8cm} }
+        \toprule
+        Week & Work plan \\
+        \toprule
+         1 & Understanding (Dependent) Type Theory and Proof Theory\\
+        \midrule
+         2 & Understanding the implementation of type theory models in digital proof assistant \\
+        \midrule
+         3 & Understanding Purely functional Programming paradigm and $ \lambda $-calculus\\
+        \midrule
+         4 & Working Principles of Agda and its core implementation \\
+        \midrule 
+         5 & Formalization of some proofs in Agda \\
+        \bottomrule
+
+
+    \end{tabular}
+=======
   \begin{center}
     \begin{tabular}{|c|c|}
         \hline
@@ -152,11 +182,25 @@ Agda is a functional programming language with dependent types. It is based on M
 
     \end{tabular}
 \end{center}
+>>>>>>> fe6c1cb97f18b831b14aaf864d6fce144cf8b56c
 \end{frame}
 
 \section{Significance and Expected Outcomes}
 \begin{frame}{Significance}
   \begin{itemize}
+<<<<<<< HEAD
+    \item Writing proofs in a formal language adds rigor and reduces ambiguity, allowing proof assistants to treat proofs as executable code that can be mechanically checked, shifting trust from human readers to computers and minimizing errors in mathematical verification.
+
+   \item Using the same theoretical foundation, treating programs as proofs and verifying their correctness increases reliability, ensuring that code—especially for sensitive applications—is secure and functions exactly as intended.
+
+  \end{itemize}
+\end{frame}
+\begin{frame}{Expected Outcomes}
+  \begin{itemize}
+    \item Understanding of dependent type theory and logics
+    \item Understanding of $\lambda$-calculus and purely functional programming
+    \item  Formalization of some selected proofs in agda
+=======
     \item Writing proofs in a formal language introduces more rigor and redcues ambiguity, and makes it executable allowing computer verification.
     \item Simplifies verification process and makes it error free.
      \item Formalizing some proofs can be difficult, this creates a challange which gives rise to novel ideas.
@@ -173,6 +217,7 @@ Agda is a functional programming language with dependent types. It is based on M
     \item Proofs for Various Algorithms
     \item (Re)Discovery of limitations of such proof assistants and formal language.
     \item Future prospects and discussion on possibility of integration of formal language in Machine Learning,
+>>>>>>> fe6c1cb97f18b831b14aaf864d6fce144cf8b56c
   \end{itemize}
 \end{frame}
 
