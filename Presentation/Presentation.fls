@@ -1,7 +1,7 @@
-PWD /home/bs/Proof-assistant/Presentation
+PWD /home/ashwot/projects/proof-form/Presentation
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
-INPUT /home/bs/Proof-assistant/Presentation/Presentation.tex
+INPUT /home/ashwot/projects/proof-form/Presentation/Presentation.tex
 OUTPUT Presentation.log
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 INPUT /usr/share/texmf-dist/tex/latex/beamer/beamer.cls
@@ -291,6 +291,8 @@ INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texmf-dist/tex/latex/base/inputenc.sty
 INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
 INPUT /usr/share/texmf-dist/tex/latex/cite/cite.sty
+INPUT /usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 INPUT ./Presentation.aux
