@@ -211,6 +211,7 @@
   "/usr/share/texmf-dist/tex/latex/url/url.sty" 1742685315 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty" 1742685315 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1742685315 42087 b0f9697c952c8f5a8eede4134282cb0d ""
+<<<<<<< HEAD
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1747971282 5311557 9da84c45f5b388655502706482323571 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1747971202 2008240 f8ee7870502416f514fa9cfabeea2f5a ""
   "Presentation.aux" 1748919304.32122 4766 9e7dec80f0ac1ffb17180fd502fb7e7d "pdflatex"
@@ -219,6 +220,16 @@
   "Presentation.out" 1748919304.32122 956 4e2180239b284cbe794ee69001a31667 "pdflatex"
   "Presentation.tex" 1748919300.60789 7330 e84b75f90a29e812db0bc2d324601f0c ""
   "Presentation.toc" 1748919304.32456 353 5f8a21b96c14c18978527d11134fa511 "pdflatex"
+=======
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1748537798 5311557 9da84c45f5b388655502706482323571 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1748537796 2008233 33e7d22d08888754f6b134c760a23e9d ""
+  "Presentation.aux" 1748768887.87747 4721 5bd2e51d92495dfdc2c6714e0566f8ad "pdflatex"
+  "Presentation.bbl" 1748768351.00591 426 34d02ccd00f08df19b437e77e09b3090 "bibtex Presentation"
+  "Presentation.nav" 1748768887.8808 2800 88766a630fe33df1709912391e2b0082 "pdflatex"
+  "Presentation.out" 1748768887.8808 875 b387b9b6632505345468c4dc76d689fe "pdflatex"
+  "Presentation.tex" 1748768885.48747 7059 e5709f84100928a50d2aa62d08b7212e ""
+  "Presentation.toc" 1748768887.8808 338 a992a6085145e0b7bbd6881aa93bcd4b "pdflatex"
+>>>>>>> fe6c1cb97f18b831b14aaf864d6fce144cf8b56c
   (generated)
   "Presentation.aux"
   "Presentation.log"

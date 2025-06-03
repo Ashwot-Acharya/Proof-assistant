@@ -11,7 +11,7 @@
 \usepackage{booktabs}       
 
 
-\title{Working Principles of Proof Assitants and Formalization of Some Proofs in Agda}
+\title{Working Principles of Proof Assistants and Formalization of Some Proofs in Agda}
 \author{Ashwot Acharya, Bishesh Bohora, Supreme Chaudary}
 \institute{Kathmandu University}
 \date{\today} 
@@ -27,14 +27,24 @@
   \tableofcontents
 \end{frame}
 
-\section{Introduction And Motivation}
+\section{Introduction}
 
-\begin{frame}{Introduction}
-    As the title suggests, our project will revolve around exploration of theoritical fondations behind Proof Assitants and practice them.
+\begin{frame}{Problem Statement}
+    As the title suggests, our project will revolve around exploration of theoritical fondations behind Proof Assistants and practice them.
 
     
 \end{frame}
+\begin{frame}{Motivation}
+    \begin{itemize}
+  \item Strong interest in mathematics and formal reasoning.
+  \item Discovered type theory through internet memes on category theory.
+  \item Fascinated by the Four Colour Theorem and its computer-assisted proof.
+  \item The rise of AI raised the question: \textit{"How do computers understand reasoning?"}
+  \item Drawn to functional programming, which closely mirrors mathematical logic and structure.
+    
+\end{itemize}
 
+\end{frame}
 \begin{frame}{Proof Assistants}
         In computer science and mathematical logic, a proof assistant or interactive theorem prover is a software tool to assist with the development of formal proofs by human–machine collaboration.\cite{wikipedia_proof_assistant} 
 
@@ -76,17 +86,7 @@
   
 \end{itemize}
 \end{frame}
-\begin{frame}{Motivation}
-    \begin{itemize}
-  \item Strong interest in mathematics and formal reasoning.
-  \item Discovered type theory through internet memes on category theory.
-  \item Fascinated by the Four Colour Theorem and its computer-assisted proof.
-  \item The rise of AI raised the question: \textit{"How do computers understand reasoning?"}
-  \item Drawn to functional programming, which closely mirrors mathematical logic and structure.
-    
-\end{itemize}
 
-\end{frame}
 
 
 
@@ -95,7 +95,7 @@
 \begin{itemize}
   \item Type theory is a formal system that classifies expressions by their "types."
   \item Originally developed as an alternative to set theory for foundations of mathematics.
-  \item Predecessor to Dependent Type Theory, Martin Löf Type Theory which form basis for various proof assitants.
+  \item Predecessor to Dependent Type Theory, Martin Löf Type Theory which form basis for various proof assistants.
   \item Types prevent logical paradoxes and provide a basis for constructive reasoning.
 \end{itemize}
 \end{frame}
@@ -116,7 +116,7 @@
         \item \textbf{Lambda Calculus}: A minimal formal system for function definition and application; the foundation of computation theory.
   \item \textbf{Functional Programming}: Directly inspired by lambda calculus; treats computation as evaluation of mathematical functions.
 
-  \item In proof assitants, Core logic is based on typed lambda calculus.
+  \item In proof assistants, Core logic is based on typed lambda calculus.
       \item Tools like Coq and Agda embed functional languages with type theory.
     \end{itemize}
 \end{frame}
@@ -130,7 +130,7 @@
     \end{itemize}
 \end{frame}
 \begin{frame}{Agda}
-Agda is a functional programming language with dependent types. It is based on Martin Löf Type Theory. And most importantly it is a proof assitant.
+Agda is a functional programming language with dependent types. It is based on Martin Löf Type Theory. And most importantly it is a proof assistants.
 \cite{inproceedings}
 \end{frame}
 \begin{frame}{Why Agda?}
@@ -144,6 +144,7 @@ Agda is a functional programming language with dependent types. It is based on M
 
 \section{Work Plan}
 \begin{frame}{Work Plan}
+<<<<<<< HEAD
       \begin{tabular}{p{1cm} p{8cm} }
         \toprule
         Week & Work plan \\
@@ -161,11 +162,33 @@ Agda is a functional programming language with dependent types. It is based on M
 
 
     \end{tabular}
+=======
+  \begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        Week & Work plan \\
+        \hline
+         1 & Understanding (Dependent) Type Theory and Proof Theory\\
+        \hline
+         2 & Understanding the implementation of type theory models in digital proof assistant \\
+        \hline
+         3 & Understanding Purely functional Programming paradigm and $ \lambda $-calculus\\
+        \hline
+         4 & Working Principles of Agda and its core implementation \\
+        \hline 
+         5 & Formalization of some proofs in Agda \\
+        \hline
+
+
+    \end{tabular}
+\end{center}
+>>>>>>> fe6c1cb97f18b831b14aaf864d6fce144cf8b56c
 \end{frame}
 
 \section{Significance and Expected Outcomes}
 \begin{frame}{Significance}
   \begin{itemize}
+<<<<<<< HEAD
     \item Writing proofs in a formal language adds rigor and reduces ambiguity, allowing proof assistants to treat proofs as executable code that can be mechanically checked, shifting trust from human readers to computers and minimizing errors in mathematical verification.
 
    \item Using the same theoretical foundation, treating programs as proofs and verifying their correctness increases reliability, ensuring that code—especially for sensitive applications—is secure and functions exactly as intended.
@@ -177,10 +200,28 @@ Agda is a functional programming language with dependent types. It is based on M
     \item Understanding of dependent type theory and logics
     \item Understanding of $\lambda$-calculus and purely functional programming
     \item  Formalization of some selected proofs in agda
+=======
+    \item Writing proofs in a formal language introduces more rigor and redcues ambiguity, and makes it executable allowing computer verification.
+    \item Simplifies verification process and makes it error free.
+     \item Formalizing some proofs can be difficult, this creates a challange which gives rise to novel ideas.
+    \item Opportunity to delve into Constructivism.
+    \item Can use same theory to check correctness of computer programs/software which helps in writing secure code. 
+  \end{itemize}
+
+\end{frame}
+\begin{frame}{Expected Outcomes}
+  \begin{itemize}
+    \item Improved understanding of proofs, logic and programming.
+    \item Experience of Using A Proof Assistant and incorporating them in regular studies.
+    \item New Formalization of Proofs of various fields in Agda 
+    \item Proofs for Various Algorithms
+    \item (Re)Discovery of limitations of such proof assistants and formal language.
+    \item Future prospects and discussion on possibility of integration of formal language in Machine Learning,
+>>>>>>> fe6c1cb97f18b831b14aaf864d6fce144cf8b56c
   \end{itemize}
 \end{frame}
 
-\section{Conclusion}
+\section{References}
 \begin{frame}{References}
 \bibliographystyle{apalike}       
 \bibliography{references} 
