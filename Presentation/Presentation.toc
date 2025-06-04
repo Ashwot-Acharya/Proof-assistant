@@ -1,5 +1,5 @@
 \beamer@sectionintoc {1}{Introduction}{3}{0}{1}
-\beamer@sectionintoc {2}{Glance At Theoritical Foundations}{8}{0}{2}
+\beamer@sectionintoc {2}{Glance At Theoretical Foundations}{8}{0}{2}
 \beamer@sectionintoc {3}{Methodology and Tool}{11}{0}{3}
 \beamer@sectionintoc {4}{Work Plan}{14}{0}{4}
 \beamer@sectionintoc {5}{Significance and Expected Outcomes}{15}{0}{5}
