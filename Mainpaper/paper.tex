@@ -7,6 +7,8 @@
 \usepackage{hyperref}
 \usepackage{cite}
 \usepackage{geometry}
+\usepackage{bussproofs}
+
 \geometry{a4paper, margin=1in}
 \usepackage{titlesec}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
@@ -33,21 +35,100 @@
 \section{Introduction}
 
 \section{Foundations}
-
+This section sheds light upon some fundamental concept on which Proof Assistants work along with how a proof should be written so that it can be mechanically verified.
 \subsection{Logic Foundations}
-This works assumes prior knowledge of Propositional and Predicate Logic. 
+This works assumes prior knowledge of Propositional and Predicate Logic. And we refer to both together as \textbf{Classical}.
 \subsubsection{Natural Deduction}
 The propositions or formulas in Propositional Logic can be verified or proved simply by constructing their truth tables. But for logically complex propositions or propositions with many atomic statements, it becomes difficult to construct a truth table. With predicates, this becomes impossible. Therefore, to mitigate this we adhere to a basic set of inference rules with which we derive conclusions from assumptions in step by step, structured manner. The rule based system which allows us to reason about logical structure of propositions is known as \textbf{Natural Deduction}. \\
-With the rules in (refer sth, either appendix or a book) we now present an example on how a proof is carried out,
-(write a proof here).(also use law of excluded middle here)
+With the rules in Section 2.3 of \cite{Alrubyli2021}  we now present examples on how a proof is carried out with Natural Deduction for Classical Logic.
 
-The above works for propositional case, now adding these  Introduction and Elimination rules for quantifiers, we get a set of rules enough for predicate logic.
-(write extra rules) as in (refer)
+\newtheorem{example}{Example}[section] 
+\begin{example}
+    \label{contra}
+    \textbf{$(A \land\neg A) \to \bot $ }
+  
+    By negation introduction we can write $\neg A$ as $A \to \bot$
 
-and a proof as (proof with quantifiers) 
+    $(A \land (A \to \bot)) \to \bot$
 
-The \textbf{soundness} and \textbf{completeness} of this system are discussed here (refer). 
+    \begin{prooftree}
+        \AxiomC{$[A]$}
+        \AxiomC{$[A \to \bot]$}
+        \RightLabel{\scriptsize$\to$E}
+        \BinaryInfC{$\bot$}
+    \end{prooftree}
+    
+    
+
+    
+
+\end{example}
+
+\begin{example}
+    \label{lem}
+    Proof for Law of Excluded Middle ($P \lor \neg P$)\\
+    Note that Example \ref{contra}'s result is used here.
+    \begin{prooftree}
+\AxiomC{$[P]$}
+\RightLabel{\scriptsize$\lor$I$$}
+\UnaryInfC{$P \lor \neg P$}
+\AxiomC{$[\neg (P \lor \neg P)]$}
+\RightLabel{\scriptsize$\bot$}
+\BinaryInfC{$\bot$}
+\RightLabel{\scriptsize$\neg I$}
+\UnaryInfC{$\neg P$}
+\RightLabel{\scriptsize$\lor$I$$}
+\UnaryInfC{$P \lor \neg P$}
+\AxiomC{$[\neg (P \lor \neg P)]$}
+\RightLabel{\scriptsize$\bot$}
+\BinaryInfC{$\bot$}
+\RightLabel{\scriptsize$\neg$I$$}
+\UnaryInfC{$\neg \neg (P \lor \neg P)$}
+\RightLabel{\scriptsize$\neg\neg$E}
+\UnaryInfC{$P \lor \neg P$}
+\end{prooftree}
+\end{example}
+
+
+
+\begin{example}
+    $$ \forall x (A(x) \to B(x) ) , A(s)  \vdash \exists  x B(x) $$
+
+    \begin{prooftree}
+        \AxiomC{$[ \forall x (A(x) \to B(x))]$}
+        \AxiomC{$[A(s)]$}
+        \RightLabel{\scriptsize $\forall E$}
+        \BinaryInfC{$A(s) \to B(s)$}
+        \RightLabel{\scriptsize $\to E$}
+        \UnaryInfC{B(s)}
+        \RightLabel{\scriptsize $\exists I$}
+        \UnaryInfC{$\exists x B(x)$}
+    \end{prooftree}
+
+\end{example}
+
+The \textbf{soundness} and \textbf{completeness} of this system are discussed in Section 3.1 and 3.2 \cite{Alrubyli2021}. 
 \subsubsection{Intuitionstic Logic}
+Intuitionstic Logic was introduced to formalize the constructive method to do mathematics. Unlike in Classical Logic a statement is True if we can construct a proof for it and to claim a statement is False, again a proof of its falsity is required. This allows the case that some statements are not provable. 
+To show something exists one must provide an method or algorithm to construct it. Proof Assistants leverage this fact.
+The constructive view of doing mathematics gives a stricter criteria. Intuitionstic  Logic can be obtained by restricting certain parts of Classical Logic, like the Law of Excluded Middle.
+
+For inference rules for Natural Deduction in Intuitionstic Logic See 2.1 \cite{Pfenning2004}, here the language is slightly different from above, we have
+\\
+\textit{Terms} \quad $t ::= x \mid a \mid f(t_1, \ldots, t_n)$
+\\
+\textit{Propositions} \quad
+$A ::= P(t_1, \ldots, t_n) \mid A_1 \land A_2 \mid A_1 \supset A_2 \mid A_1 \lor A_2 \mid \neg A \mid \bot \mid \top \mid \forall x. A \mid \exists x. A$
+
+ The main focus is that this new set of rules does not contain the double negation rule which is present in what we introduced in Section 2.1.1. \textbf {Example \ref{lem}} uses the Double negation rule in its proof, which we don't have now. This agrees to that Law of Excluded Middle does not work in Intuitionstic Logic. The method of proof by contradiction also relies on this rule, so constructivists omit it.\\
+These rules are revised with localized hypotheses i.e we use the above rules under a set of premises, and refer the derivation as "derived under a context". With introduction of contexts 
+$$Contexts  \ \Gamma ::= .|\Gamma,u: A$$
+[See 2.3 \cite{Pfenning2004}]
+
+
+\subsection{Type Theory}
+
+
 
 
 \section{General Architecture of Proof Assistants}
@@ -68,8 +149,15 @@ The \textbf{soundness} and \textbf{completeness} of this system are discussed he
 \section{Formalization of Some Proofs}
 
 
+
+\section{Challenges and Workarounds}
+
+
+
+
+
 % ======== References =========
-\bibliographystyle{plain} 
+\bibliographystyle{apalike} 
 \bibliography{references}
 
 \end{document}
