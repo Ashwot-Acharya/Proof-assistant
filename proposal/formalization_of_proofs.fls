@@ -8,10 +8,8 @@ INPUT /usr/share/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/share/texmf-dist/tex/latex/base/size10.clo
 INPUT /usr/share/texmf-dist/tex/latex/base/size10.clo
 INPUT /usr/share/texmf-dist/tex/latex/base/size10.clo
-INPUT /usr/share/texmf-dist/tex/latex/hyphenat/hyphenat.sty
-INPUT /usr/share/texmf-dist/tex/latex/hyphenat/hyphenat.sty
-INPUT /usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
-INPUT /usr/share/texmf-dist/tex/latex/booktabs/booktabs.sty
+INPUT /usr/share/texmf-dist/tex/latex/natbib/natbib.sty
+INPUT /usr/share/texmf-dist/tex/latex/natbib/natbib.sty
 INPUT /usr/share/texmf-dist/tex/latex/ntgclass/a4.sty
 INPUT /usr/share/texmf-dist/tex/latex/ntgclass/a4.sty
 INPUT /usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
