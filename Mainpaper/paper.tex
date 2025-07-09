@@ -8,7 +8,7 @@
 \usepackage{cite}
 \usepackage{geometry}
 \usepackage{bussproofs}
-\usepackage{tasks}
+\usepackage{braket}
 \geometry{a4paper, margin=1in}
 \usepackage{titlesec}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
@@ -124,11 +124,15 @@ $A ::= P(t_1, \ldots, t_n) \mid A_1 \land A_2 \mid A_1 \supset A_2 \mid A_1 \lor
 These rules are revised with localized hypotheses i.e we use the above rules under a set of premises, and refer the derivation as "derived under a context". With introduction of contexts 
 $$Contexts  \ \Gamma ::= .|\Gamma,u: A$$
 [See 2.3 \cite{Pfenning2004}]
-
+A small example using this set of rules,
+$$ $$
+\begin{example}
+    
+\end{example}
 
 \subsection{$\lambda$ - Calculus and Type Theory} 
 
-\subsubsection{Untyped $\lambda$-Calculus}
+\subsubsection{ $\lambda$-Calculus}
 It is a model of computation introduced by Alzano Church. It consists of construction and operations on lambda terms. 
 Among the lambda terms we have,
 \begin{enumerate}
@@ -142,12 +146,26 @@ $$ \lambda x.x^2 $$
 
 Now Application is calling that given function by applying it.
 
-
+\begin{example}
 \begin{align*}
  (\lambda x.x^2) 3\\
  3^2 \\
  9
 \end{align*}
+\end{example}
+The functions can be constructed such that they can take multiple values too, say a function to compute sum of squares can be implemented with lambda calculus as
+
+\begin{example}
+    $$\lambda x \lambda y. x^2 +y^2$$
+Its application is as 
+$$(\lambda x \lambda y. x^2 +y^2) (3) (4)$$
+$$(\lambda y. 3^2 + y^2)(4)$$
+$$3^2+4^2$$
+$$9+16$$
+$$25$$
+\end{example}
+
+This is called \textbf{currying}.\\
 The reduction rules are :
 
 \begin{enumerate}
@@ -161,7 +179,7 @@ $\lambda x.t$ is same as $ \lambda y.t[x:=y]$
      $(\lambda x.E) F$ is $E[x := F]$, where $E[x := F]$
 \end{enumerate}
 For comprehensive treatment of this topic, see \cite{Rojas2015}. And for the original formulation by Church \cite{}
-This is not sufficient for the mentioned application.
+
 
 
 
@@ -169,43 +187,66 @@ This is not sufficient for the mentioned application.
 \subsubsection{Type Theory}
 Type Theory is a formal system that associates every object or \textbf{term} a \textbf{Type}. The earliest version of Type Theory was introduced by Russell to avoid paradoxes in Set Theory (like \textbf{Russell's Paradox}). Later with development of Simply Typed Lambda Calculus, this became important as a foundation of Programming Languages.\\
 
-Unlike Sets, Types do not talk about the semantics but rather the structure or syntax only. For example, in Type theory, $1+2:\mathbb{N}$ we carry out the judgement that 1+2 is a Natural Number whereas while talking bout sets $1+2 \in \mathbb{N}$  means that 1+2 is inside $\mathbb{N}$. \\With types, we do not care what 1+2 means, the information we have is the operator '+' has a type $\mathbb{N} \to \mathbb{N}$ and  $1:\mathbb{N}, 2:\mathbb{N}$ therefore the judgement  $1+2:\mathbb{N}$ follows. Whereas with sets, we proceed as $1+2=3\in \mathbb{N}$.\\
+Unlike Sets, Types do not talk about the semantics but rather the structure or syntax only. For example, in Type theory, $1+2:\mathbb{N}$ we carry out the judgement that 1+2 is a Natural Number whereas while talking bout sets $1+2 \in \mathbb{N}$  means that 1+2 is inside $\mathbb{N}$. \\With types, we do not care what 1+2 means, the information we have is the operator '+' has a type $\mathbb{N} \times \mathbb{N}  \to \mathbb{N}$ and  $1:\mathbb{N}, 2:\mathbb{N}$ therefore the judgement  $1+2:\mathbb{N}$ follows. Whereas with sets, we proceed as $1+2=3\in \mathbb{N}$.\\
 
 Note that verifying if a term a is of type A is decidable, i.e there is an algorithm for it. This process is called Typing or Type Checking. Proof Assistants leverage this for proof checking. Proof checking is decidable; proof finding not. \cite{Geuvers2009}\\
 
 
 In simple type theory there are, 
 \begin{itemize}
-    \item \textbf{Base Types} : Primitive types which are not built from anything else, Eg: Boolean Type, Nat Type etc. These are generally denoted by capital letters M,N,T etc. and we can carry out the judgement as\\
+    \item \textbf{Base Types} : Primitive types which are not built from anything else, Eg: Boolean Type, Nat Type, $\bot$ or Empty Type etc. These are generally denoted by capital letters M,N,T etc. and we can carry out the judgement as\\
         a:A, a is term of Type A.\\ 
         
     \item \textbf{Arrow Types} : Also called as function type which take input of a type and return another. As we have discussed '+' has type $\mathbb{N} \to \mathbb{N}$. More generally if a function f takes input of type A and returns output of type B then, $f:A \to B$. In logic these are equivalent to implication. We will discuss about this correspondence later.
     
 \end{itemize}
 
-This is not expressive enough for doing constructive mathematics. So the system is extended as ,
-
+Which can be further extended as,
 \begin{itemize}
-    \item \textbf{Product Types} 
+    \item \textbf{Product Types} Product types are similar to Cartesian Products from Set Theory, the terms inhabiting the product type is a pair of terms from the involving types, $a:A, b:B $ then $ \left\langle a,b \right\rangle : A \times B$ .
+    \item \textbf{Sum Type} This is similar to disjoint union with sets, therefore the term has one of the participating types. 
+     $$a:A, b:B, a:A+B, b:A+B$$
+
+    
 \end{itemize}
+\subsubsection{Simply Typed Lambda Calculus}
+ We have already discussed about the Lambda Calculus as well as Types, now we assign a type to each lambda term. The functions in Untyped lambda Calculus are too general. In Example 2.5 we did not mention what squaring means, can we apply it to some arbitary type of data, what will the function return, these concerns remain unanswered. But when we assign every term a type, it can be assigned what can the function take and return.
+ \begin{itemize}
+    \item Variables  x:T , a variable which has a type T
+    \item Abstraction $\lambda x:M.t:T$ , the function takes an input of type M and returns t of type T.
+    \item Application $(\lambda x:M.t:T)(a:M)$
+    
+
+
+ \end{itemize}
+ 
+ We present a typed version of Example 2.5\\
+ \begin{example}
+    $$\lambda x:\mathbb{N}.x^2:\mathbb{N}$$
+    Note that now this function can only take natural numbers,\\
+    Application
+    $$(\lambda x:\mathbb{N}.x^2:\mathbb{N})(3)$$
+    which gives, along with the judgement
+    $$3^2:\mathbb{N}$$
+ \end{example}
+
+\subsection{Proof Terms and The Curry Howard Correspondence}
+
+
+\subsection{Dependent Type Theory and Dependently Typed $\lambda$-Calculus}
+In this extension of theory of types, we allow types to depend upon some value. For example, modeling vectors with types, we require it to depend on Natural number for its dimension. 
+u:Vec(n) means u is a vector type with n dimension and n:$\mathbb{N}$. 
+This can be taken as a function type with $Vec:\mathbb{N} \to Type$ , which takes a type of natural number as input and returns a type. 
 
 
 
-Simply Typed lambda Calculus
-
-Dependent Type Theory 
 
 
-\subsection{Curry Howard Correspondence}
-
-% Refer 
-
-% Make a Table  
-
-% Show a model of a proof 
-% one basic one mathy 
 
  \subsection{Martin Lof Type Theory }
+
+
+
 
 % Finally rigidify the basics refer to the original paper 
 
