@@ -8,7 +8,7 @@
 \usepackage{cite}
 \usepackage{geometry}
 \usepackage{bussproofs}
-
+\usepackage{tasks}
 \geometry{a4paper, margin=1in}
 \usepackage{titlesec}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
@@ -126,9 +126,92 @@ $$Contexts  \ \Gamma ::= .|\Gamma,u: A$$
 [See 2.3 \cite{Pfenning2004}]
 
 
-\subsection{Type Theory}
+\subsection{$\lambda$ - Calculus and Type Theory} 
+
+\subsubsection{Untyped $\lambda$-Calculus}
+It is a model of computation introduced by Alzano Church. It consists of construction and operations on lambda terms. 
+Among the lambda terms we have,
+\begin{enumerate}
+    \item Variables : $x,y,z ...$ are lambda terms
+    \item Application : If E,F are lambda terms EF is a lambda term 
+    \item Abstraction : If E is a lambda term $\lambda x. E $ is a lambda term
+\end{enumerate}
+Therefore lambda calculus is a formal system involving Abstraction and Application of functions along with some reduction rules.
+Abstraction is the definition of a anonymous function , for example \\
+$$ \lambda x.x^2 $$
+
+Now Application is calling that given function by applying it.
 
 
+\begin{align*}
+ (\lambda x.x^2) 3\\
+ 3^2 \\
+ 9
+\end{align*}
+The reduction rules are :
+
+\begin{enumerate}
+    \item $\alpha$-Conversion \\
+    \indent The function remains the same if all bound variable is renamed.
+    In above example $\lambda y. y^2$ does the same thing.
+
+$\lambda x.t$ is same as $ \lambda y.t[x:=y]$
+    \item $\beta$-Reduction\\
+     This is substitution. During application all the instances of bound variable in the expression is replaced by the argument. Again referring above example $x^2$ becomes $3^2$.\\
+     $(\lambda x.E) F$ is $E[x := F]$, where $E[x := F]$
+\end{enumerate}
+For comprehensive treatment of this topic, see \cite{Rojas2015}. And for the original formulation by Church \cite{}
+This is not sufficient for the mentioned application.
+
+
+
+
+\subsubsection{Type Theory}
+Type Theory is a formal system that associates every object or \textbf{term} a \textbf{Type}. The earliest version of Type Theory was introduced by Russell to avoid paradoxes in Set Theory (like \textbf{Russell's Paradox}). Later with development of Simply Typed Lambda Calculus, this became important as a foundation of Programming Languages.\\
+
+Unlike Sets, Types do not talk about the semantics but rather the structure or syntax only. For example, in Type theory, $1+2:\mathbb{N}$ we carry out the judgement that 1+2 is a Natural Number whereas while talking bout sets $1+2 \in \mathbb{N}$  means that 1+2 is inside $\mathbb{N}$. \\With types, we do not care what 1+2 means, the information we have is the operator '+' has a type $\mathbb{N} \to \mathbb{N}$ and  $1:\mathbb{N}, 2:\mathbb{N}$ therefore the judgement  $1+2:\mathbb{N}$ follows. Whereas with sets, we proceed as $1+2=3\in \mathbb{N}$.\\
+
+Note that verifying if a term a is of type A is decidable, i.e there is an algorithm for it. This process is called Typing or Type Checking. Proof Assistants leverage this for proof checking. Proof checking is decidable; proof finding not. \cite{Geuvers2009}\\
+
+
+In simple type theory there are, 
+\begin{itemize}
+    \item \textbf{Base Types} : Primitive types which are not built from anything else, Eg: Boolean Type, Nat Type etc. These are generally denoted by capital letters M,N,T etc. and we can carry out the judgement as\\
+        a:A, a is term of Type A.\\ 
+        
+    \item \textbf{Arrow Types} : Also called as function type which take input of a type and return another. As we have discussed '+' has type $\mathbb{N} \to \mathbb{N}$. More generally if a function f takes input of type A and returns output of type B then, $f:A \to B$. In logic these are equivalent to implication. We will discuss about this correspondence later.
+    
+\end{itemize}
+
+This is not expressive enough for doing constructive mathematics. So the system is extended as ,
+
+\begin{itemize}
+    \item \textbf{Product Types} 
+\end{itemize}
+
+
+
+Simply Typed lambda Calculus
+
+Dependent Type Theory 
+
+
+\subsection{Curry Howard Correspondence}
+
+% Refer 
+
+% Make a Table  
+
+% Show a model of a proof 
+% one basic one mathy 
+
+ \subsection{Martin Lof Type Theory }
+
+% Finally rigidify the basics refer to the original paper 
+
+
+
+% Update based on knowledge.....
 
 
 \section{General Architecture of Proof Assistants}
@@ -158,6 +241,6 @@ $$Contexts  \ \Gamma ::= .|\Gamma,u: A$$
 
 % ======== References =========
 \bibliographystyle{apalike} 
-\bibliography{references}
+\bibliography{references.bib}
 
 \end{document}
