@@ -1,6 +1,7 @@
 \documentclass{article}
-\usepackage{hyphenat}
-\usepackage{booktabs}
+\usepackage[numbers]{natbib}
+
+\usepackage{a4}
 \title{
     {Working Principles Of Proof Assistants And Formalization Of Some Proofs in Agda}\\
     {\large Supervisor: K.B manandar}\\
@@ -32,7 +33,10 @@ through lens of Dependent Type Theory on which it is based upon.
     \item To formalize some selected proofs in Agda and demonstrate verification process.
 \end{enumerate}
 \section{Literature Review}
-Proofs or sometimes called the mathematical Proofs are at the foundation of all of mathematics and no mathematical reason are accepted unless they are proven by mathematical reasoning. The construction of proofs begins with initiation of terms, axioms and may bed dependent on previously proven
+\indent{}
+Proofs or sometimes called the mathematical Proofs are at the foundation of all 
+of mathematics and no mathematical reason are accepted unless they are proven by mathematical reasoning.
+The construction of proofs begins with initiation of terms, axioms and may bed dependent on previously proven
 theorems. Each statement in mathematical proofs must be correct which means to say that each step of the proof must be logically followed from its preceeding steps. (Grami Ali, 2023)\\
 Proof assistant are comnputer system designed to do mathematics but not in the computational sense but more towards the aspect of reasoning, proving and defining.
 In proof assistant a user can setuo a mathematical theory, defines its properities and be able to perform logical task on them.
@@ -40,10 +44,14 @@ Most proof assistant now a days are used my professionals to formalize mathemati
 in the assisting software. This step of writing proofs in a formal language is called the formalization of proofs. (H Geuvers, 2009)  \\ 
 The earliest work on computer assisted proof dates back to the 1950's and 1960s 
 [Davis,1957; Gilmore, 1960; Davis and Putnam, 1960; Wang, 1960; Prawitz et al., 1960] who were devoted to automated theorem proving. 
-Automated theorem proving but Interest in more interactive arrangement began later on when full automation became a much more difficult problem than supporting human guided proofs. (Harrison, Urban and Wiedijk ,2014) 
-Auto-Math is considered probably the earliest of the interactive theorem provers, and was the first one of the theorem Provers to use Curry-howard isomorphism.
+ Interest in more interactive arrangement began much later on when full automated system became a very difficult problem than supporting human guided proofs.\\
+AutoMath is considered possibly the earliest of human guided theorem provers which gave rise to various other systems of theorem prover and is the first program to use curry howard isomorphism for encoding of proofs (Harrison, Urban and Wiedijk ,2014) \\
+Curry-Howard isomorphism states that any dertivation written in Intuitionstic Logic can be writing in their correosponding typable $ \lambda$\hyp{}terms. which means that proofs can be represented in programing terms, In short an isomorphism can be made between programs and logical proofs (Sørensen, M.H. and Urzyczyin, 2006).
+Purely functional programming languages are based on $\lambda$-calculus (H.P Barendregt, 1990), this enables computability of forementioned derivations or proofs. 
+
 \section{Methodology}
-Investigating the  Coq and the agda proof assistant and assessing the Logic that each proof assistant use and how the proof assistant use such logic to help check if the proof is valid.
+
+In this project we will be investigating the  Coq and the agda proof assistant and assessing the Logic that each proof assistant use and how \the proof assistant use such logic to help check if the proof is valid.
 We will also be inverstigating how to formalize some proofs in one of the proof assistant, and seeing how the logic holds in formalization of proofs. 
 
 \section{Expected Outcomes}
@@ -74,14 +82,16 @@ On the other side, with the same theoretical base, treating programs written in 
 \end{center}
 \pagebreak
 
-
 \section{Refrences}
 \begin{enumerate}
     \item Sloane, N.J.A. (1998). Kepler's conjecture confirmed. Nature, 395(6701), pp.435\hyp{}436 doi:https://doi.org/10.1038/26609.
     \item Szpiro, G. (2003). Does the proof stack up? Nature, 424(6944), pp.12\hyp{}3,  doi:https://doi.org/10.1038/424012a
-    \item Grami, A. (2022). Proof Methods. Elsevier eBooks, [online] pp.55\hyp{}65 doi:https://doi.org/10.1016/b978-0-12-820656-0.00004-6.
+    \item Grami, A. (2022). Proof Methods. Elsevier eBooks, [online] pp.55\hyp{}65\\doi:https://doi.org/10.1016/b978-0-12-820656-0.00004-6.
     \item Geuvers, H. (2009). Proof assistants: History, ideas and future. Sadhana, 34(1), pp.3\hyp{}25 doi:https://doi.org/10.1007/s12046-009-0001-5.
     \item Harrison, J, Urban, J. and Wiedijk, F. (2014). History of Interactive Theorem Proving. North-Holland, pp.135\hyp{}214.\\doi:https://doi.org/10.1016/B978-0-444-51624-4.50004-6
+    \item Sørensen, M.H. and Urzyczyin, P. (2006). The Curry-Howard isomorphism. Studies in Logic and the Foundations of Mathematics, pp.77\hyp{}101.\\doi:https://doi.org/10.1016/s0049-237x(06)80005-4.
+    \item BARENDREGT, H.P. (1990). Functional Programming and Lambda Calculus. Formal Models and Semantics, pp.321\hyp{}363 \\doi:https://doi.org/10.1016/b978-0-444-88074-1.50012-3.
+
 \end{enumerate} 
 
 \end{document}

@@ -7,11 +7,13 @@
 \usepackage{amsmath}   
 \usepackage{hyperref}  
 \usepackage{url}       
-\usepackage{cite}        
+\usepackage{cite}
+\usepackage{booktabs}       
 
 
 \title{Working Principles of Proof Assistants and Formalization of Some Proofs in Agda}
-\author{Ashwot Acharya, Bishesh Bohora, Supreme Chaudary}
+\author{Ashwot Acharya, Bishesh Bohora, Supreme Chaudary \\Supervisior: K.B Manandhar}
+
 \institute{Kathmandu University}
 \date{\today} 
 
@@ -29,7 +31,7 @@
 \section{Introduction}
 
 \begin{frame}{Problem Statement}
-    As the title suggests, our project will revolve around exploration of theoritical fondations behind Proof Assistants and practice them.
+    As the title suggests, our project will revolve around exploration of theoretical foundation behind Proof Assistants and practice them.
 
     
 \end{frame}
@@ -37,14 +39,14 @@
     \begin{itemize}
   \item Strong interest in mathematics and formal reasoning.
   \item Discovered type theory through internet memes on category theory.
-  \item Fascinated by the Four Colour Theorem and its computer-assisted proof.
+  \item Fascinated by the Four Color Theorem and its computer-assisted proof.
   \item The rise of AI raised the question: \textit{"How do computers understand reasoning?"}
   \item Drawn to functional programming, which closely mirrors mathematical logic and structure.
     
 \end{itemize}
 
 \end{frame}
-\begin{frame}{Proof Assistants}
+\begin{frame}{Proof Assistant}
         In computer science and mathematical logic, a proof assistant or interactive theorem prover is a software tool to assist with the development of formal proofs by human–machine collaboration.\cite{wikipedia_proof_assistant} 
 
         Examples:
@@ -89,7 +91,7 @@
 
 
 
-\section{Glance At Theoritical Foundations}
+\section{Glance At Theoretical Foundations}
 \begin{frame}{Type Theory}
 \begin{itemize}
   \item Type theory is a formal system that classifies expressions by their "types."
@@ -115,26 +117,37 @@
         \item \textbf{Lambda Calculus}: A minimal formal system for function definition and application; the foundation of computation theory.
   \item \textbf{Functional Programming}: Directly inspired by lambda calculus; treats computation as evaluation of mathematical functions.
 
-  \item In proof assistants, Core logic is based on typed lambda calculus.
+  \item In proof assistant, Core logic is based on typed lambda calculus.
       \item Tools like Coq and Agda embed functional languages with type theory.
     \end{itemize}
 \end{frame}
 
 \section{Methodology and Tool}
 \begin{frame}{Methodology}
-    
+    \begin{itemize}
+      \item Investigating the Coq and the agda proof assistant
+      \item Assessing the logic behind each of these proof assistants
+      \item Investigating of formalization of proofs in Agda
+      \item Dissection of verification process
+    \end{itemize}
 \end{frame}
 \begin{frame}{Agda}
-Agda is a functional programming language with dependent types. It is based on Martin Löf Type Theory. And most importantly it is a proof assistants.
+Agda is a functional programming language with dependent types. It is based on Martin Löf Type Theory. And most importantly it is a proof assistant.
 \cite{inproceedings}
 \end{frame}
 \begin{frame}{Why Agda?}
+  \begin{itemize}
+    \item Dependently Typed programming language
+    \item Fully embraces the Curry–Howard isomorphism
+    \item More comprehensible code
+    \item Active Community
+  \end{itemize}
 \end{frame}
 
 \section{Work Plan}
 \begin{frame}{Work Plan}
   \begin{center}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{p{1cm} p{8cm}}
         \hline
         Week & Work plan \\
         \hline
@@ -168,7 +181,6 @@ Agda is a functional programming language with dependent types. It is based on M
 \begin{frame}{Expected Outcomes}
   \begin{itemize}
     \item Improved understanding of proofs, logic and programming.
-    \item Experience of Using A Proof Assistant and incorporating them in regular studies.
     \item New Formalization of Proofs of various fields in Agda 
     \item Proofs for Various Algorithms
     \item (Re)Discovery of limitations of such proof assistants and formal language.
