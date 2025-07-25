@@ -11,6 +11,8 @@
 \usepackage{braket}
 \geometry{a4paper, margin=1in}
 \usepackage{titlesec}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
 
@@ -40,10 +42,11 @@ This section sheds light upon some fundamental concept on which Proof Assistants
 This works assumes prior knowledge of Propositional and Predicate Logic. And we refer to both together as \textbf{Classical}.
 \subsubsection{Natural Deduction}
 The propositions or formulas in Propositional Logic can be verified or proved simply by constructing their truth tables. But for logically complex propositions or propositions with many atomic statements, it becomes difficult to construct a truth table. With predicates, this becomes impossible. Therefore, to mitigate this we adhere to a basic set of inference rules with which we derive conclusions from assumptions in step by step, structured manner. The rule based system which allows us to reason about logical structure of propositions is known as \textbf{Natural Deduction}. \\
-With the rules in Section 2.3 of \cite{Alrubyli2021}  we now present examples on how a proof is carried out with Natural Deduction for Classical Logic.
+With the rules in Section 2.3 of \cite{Alrubyli2021}  we now present proofs of some propositions carried out with Natural Deduction for Classical Logic.
 
-\newtheorem{example}{Example}[section] 
-\begin{example}
+\newtheorem{proposition}{Proposition}[section] 
+\newtheorem{example}{Example}[section]
+\begin{proposition}
     \label{contra}
     \textbf{$(A \land\neg A) \to \bot $ }
   
@@ -62,12 +65,12 @@ With the rules in Section 2.3 of \cite{Alrubyli2021}  we now present examples on
 
     
 
-\end{example}
+\end{proposition}
 
-\begin{example}
+\begin{proposition}
     \label{lem}
     Proof for Law of Excluded Middle ($P \lor \neg P$)\\
-    Note that Example \ref{contra}'s result is used here.
+    Note that Proposition \ref{contra} is used here.
     \begin{prooftree}
 \AxiomC{$[P]$}
 \RightLabel{\scriptsize$\lor$I$$}
@@ -87,11 +90,11 @@ With the rules in Section 2.3 of \cite{Alrubyli2021}  we now present examples on
 \RightLabel{\scriptsize$\neg\neg$E}
 \UnaryInfC{$P \lor \neg P$}
 \end{prooftree}
-\end{example}
+\end{proposition}
 
 
 
-\begin{example}
+\begin{proposition}
     $$ \forall x (A(x) \to B(x) ) , A(s)  \vdash \exists  x B(x) $$
 
     \begin{prooftree}
@@ -105,7 +108,7 @@ With the rules in Section 2.3 of \cite{Alrubyli2021}  we now present examples on
         \UnaryInfC{$\exists x B(x)$}
     \end{prooftree}
 
-\end{example}
+\end{proposition}
 
 The \textbf{soundness} and \textbf{completeness} of this system are discussed in Section 3.1 and 3.2 \cite{Alrubyli2021}. 
 \subsubsection{Intuitionstic Logic}
@@ -124,11 +127,7 @@ $A ::= P(t_1, \ldots, t_n) \mid A_1 \land A_2 \mid A_1 \supset A_2 \mid A_1 \lor
 These rules are revised with localized hypotheses i.e we use the above rules under a set of premises, and refer the derivation as "derived under a context". With introduction of contexts 
 $$Contexts  \ \Gamma ::= .|\Gamma,u: A$$
 [See 2.3 \cite{Pfenning2004}]
-A small example using this set of rules,
-$$ $$
-\begin{example}
-    
-\end{example}
+
 
 \subsection{$\lambda$ - Calculus and Type Theory} 
 
@@ -230,20 +229,56 @@ Which can be further extended as,
     $$3^2:\mathbb{N}$$
  \end{example}
 
-\subsection{Proof Terms and The Curry Howard Correspondence}
-
-
-\subsection{Dependent Type Theory and Dependently Typed $\lambda$-Calculus}
+\subsubsection{Dependent Type Theory and Dependently Typed $\lambda$-Calculus}
 In this extension of theory of types, we allow types to depend upon some value. For example, modeling vectors with types, we require it to depend on Natural number for its dimension. 
 u:Vec(n) means u is a vector type with n dimension and n:$\mathbb{N}$. 
-This can be taken as a function type with $Vec:\mathbb{N} \to Type$ , which takes a type of natural number as input and returns a type. 
+This can be taken as a function type with $Vec:\mathbb{N} \to Type$ , which takes a type of natural number as input and returns a type. This allows indexing of types and is useful for representing predicates.
+And similarly as with simply typed $\lambda$-Calculus we can have lambda terms with dependent types. 
+
+\subsection{Proof Terms and The Curry Howard Correspondence}
+    Let us treat every proposition or Logical Formula as a Type, and their proofs as the term inhabiting it. Intuitionstically, we interpret a proposition being true if we present a proof for it. Here, it will be true if there is a term (proof) inhabiting the type (proposition).
+    p:P is now interpreted as p is a proof of P. In \cite{How} the strong correspondence between intuitionstic derivation and lambda terms was mentioned. In essence the corrrespondence is as follows,
+    \begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Logic}                & \textbf{Computation}         & \textbf{Type Theory}             \\ \hline
+Proposition                  & Type                         & Type                             \\ \hline
+Proof                        & Program                      & Term                             \\ \hline
+Proof Normalization          & Program Evaluation           & Reduction                        \\ \hline
+Implication ($A \rightarrow B$) & Function Type ($A \to B$)    & $\lambda$-abstraction            \\ \hline
+Conjunction ($A \land B$)    & Product Type ($A \times B$)  & Pairing                          \\ \hline
+Disjunction ($A \lor B$)     & Sum Type ($A + B$)           & Tagged union                     \\ \hline
+Falsehood ($\bot$)           & Empty Type                   & No term                          \\ \hline
+Truth ($\top$)               & Unit Type                    & Singleton term                   \\ \hline
+Negation ($\neg A$)          & $A \to \bot$                 & Function to empty type           \\ \hline
+Universal Quantifier ($\forall x. A(x)$) & Dependent Product ($\Pi x : A. B(x)$) & Function over types \\ \hline
+Existential Quantifier ($\exists x. A(x)$) & Dependent Sum ($\Sigma x : A. B(x)$) & Pair with dependent type \\ \hline
 
 
+\end{tabular}
+\caption{Curry–Howard Correspondence: Logic, Computation, and Type Theory}
+\end{table}\\
+The use of dependent product and sum for the Quantifier highlights the necessity of Dependent Type Theory. The rules  (Proof Terms only), equivalent to Deduction rules of Intuitionstic Logic are in Section 2.4 of \cite{Pfenning2004}. Note that this does not contain the rule for predicates. While writing a proof in a proof assistant our reasoning follows deduction rules of this kind. 
+Then to write a  program (equivalent to proof) of the proposition $A \to B \to A$, we need to construct a function that takes term of type A , term of type B and returns term of type A, that is $\lambda a{:}A.\lambda b{:}B.t{:}A $ which proceeds as
 
+   \begin{prooftree}
+  \AxiomC{}
+  \RightLabel{\scriptsize var}
+  \UnaryInfC{$a{:}A,\ b{:}B \vdash a : A$}
+  \RightLabel{\scriptsize lam}
+  \UnaryInfC{$a{:}A \vdash \lambda b{:}B.\ a : B \rightarrow A$}
+  \RightLabel{\scriptsize lam}
+  \UnaryInfC{$\vdash \lambda a{:}A.\lambda b{:}B.\ a : A \rightarrow B \rightarrow A$}
+\end{prooftree}
 
 
 
  \subsection{Martin Lof Type Theory }
+
+
+
+ \subsection{Evolution of Type Theories}
 
 
 
