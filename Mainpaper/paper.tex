@@ -274,11 +274,20 @@ Then to write a  program (equivalent to proof) of the proposition $A \to B \to A
 
 
 
- \subsection{Martin Lof Type Theory }
+ \subsection{Martin-Löf Type Theory }
+    Martin-Löf Type Theory is the formal logic system that was developed to support constructive mathematics. It's often referred to as Intuitionstic Type Theory. It carries the use of dependent types and is the backbone of Proof Assistants.\\
+        The following types are also valid in this system.
+        \begin{itemize}
+            \item $\prod$-Type : The dependent function type, as mentioned in Table 1. it supports the interpretation of Universal Quantifier.
+            \item $\sum$-Type : The dependent sum type, equivalent to the Existential Quantifier.
+            \item Identity Type : Equality itself is internalized as a type in this system. Hence, we can judge if two terms are the same. By the correspondence, proofs are terms then this allows proof assistants to match proofs and declare their Equality.
+            
+        \end{itemize}
+        Furthermore, We also have \textbf{Type Universes}, Every Type itself can be assigned a Type. This creates a hierarchy of types. For example, $1:\mathbb{N},\mathbb{N}:Type:...$, The number 1 has type Natural, then Natural has a type called Type, which itself can have another type. Not to be interpreted as , a set being contained in another set, this gives rise to paradoxes. But rather take it as hierarchy of Universes. From this we can talk about Types themselves within our system, and  allow proof assistants to safely handle abstraction over types.\\
+        The results from  \cite{martinlof1972intuitionistic_theory} where this system was first introduced by Martin Löf, will be mentioned as necessary.
+        
+        
 
-
-
- \subsection{Evolution of Type Theories}
 
 
 
