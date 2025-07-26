@@ -1,5 +1,5 @@
 module irrational_proof where
-
+  
 open import Data.Nat
 open import Data.Integer
 open import Data.Rational

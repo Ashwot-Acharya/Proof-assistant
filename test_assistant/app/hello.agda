@@ -2,7 +2,7 @@ module hello where
 
 an-implication : { A B C : Set} -> ( A -> B) -> ( A -> B) -> ( B -> C ) -> A -> C
 
-an-implication g g' f x = f (g' x) 
+an-implication g g' f x = ?
 
 another-implication : { A B C : Set} -> ( A -> B) -> ( A -> B) -> ( B -> C ) -> A -> C
 
@@ -30,9 +30,14 @@ data Even : N -> Set where
   evenSucSuc : ∀ {n} -> Even n -> Even (suc (suc n))
 
 square : N -> N
+
 square n = n * n
 
- -- proof that if m^2 = 2n^2 then both m and n are even
+data ⊥ : Set where
 
-irrationalSqrt2 : (m n : N) -> n ≡ zero ->  ⊥  -> square m ≡ (suc (suc zero)) * square n -> ⊥
+m^2 = 2n^2 
+
+irrationalSqrt2 : (m n : N) -> n ≡ zero ->  ⊥  -> square m ≡ ((suc (suc zero)) * square n) -> ⊥
 irrationalSqrt2 m n nNonZero absurd eq =  {!!}
+
+i
