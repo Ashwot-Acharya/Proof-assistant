@@ -1,0 +1,142 @@
+% proof_assistants_architecture.tex
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath,amssymb,url,hyperref,geometry,xcolor}
+\geometry{margin=2.5cm}
+\newcommand{\code}[1]{\texttt{#1}}
+
+\title{Internal Architecture and Type--Checking Algorithms of Contemporary Proof Assistants}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-2em} % no introduction, jump straight in
+
+\section{Layered Architecture Overview}
+Contemporary proof assistants adopt a stratified design that separates a \emph{tiny, trusted kernel} from progressively less–trusted outer layers.  Fig.~\ref{fig:layers} summarises the canonical stack used by Coq, Lean 4, Agda, Isabelle/HOL and HOL Light\cite{coq-arch,isabelle-manual,hollight-tut,lean4-survey,agda-note}.  
+
+\begin{figure}[h]
+\centering
+\begin{tabular}{|c|}
+\hline
+\textbf{User Interfaces} (VS Code, Proof General, CoqIDE, etc.) \\\hline
+\textbf{Elaborator / Front-End}\\
+\hline
+\textbf{Tactic Engine \& Automation}\\
+\hline
+\textbf{Kernel (Type Checker + Inference Rules)}\\
+\hline
+\textbf{Logical Foundations (CIC, HOL, MLTT, …)}\\
+\hline
+\end{tabular}
+\caption{Standard proof-assistant layer cake.}
+\label{fig:layers}
+\end{figure}
+
+\section{Kernels in Practice}
+\subsection{Size and Trusted Computing Base}
+Each system’s kernel implements only the primitive inference rules of its object logic, plus definitional equality.  
+Coq’s kernel (\(\approx\)6 kLoC OCaml) checks elaborated \emph{proof terms} for well-typedness in the Calculus of Inductive Constructions (CIC)\cite{coq-arch}.  
+Lean 4’s C++ kernel is slightly larger (\(\approx\)9.5 kLoC) but mirrors the same minimalist philosophy\cite{lean4-survey}.  
+HOL Light, in contrast, fits its entire kernel into \(\approx\)2.3 kLoC of OCaml by exploiting HOL’s small rule set\cite{hollight-tut}.  
+
+\subsection{De Bruijn Criterion}
+All surveyed assistants satisfy the \emph{de Bruijn criterion}: every externally supplied proof is reduced to kernel-checked primitives, guaranteeing that only the kernel must be trusted\cite{coq-core}.  Isabelle achieves this by embedding object logics inside a generic meta-logic implemented in Standard ML\cite{isabelle-manual}.  
+
+\section{Type-Checking Algorithms}
+\subsection{Bidirectional Checking}
+Coq, Lean 4 and Agda implement \emph{bidirectional} algorithms that alternate between
+\emph{checking} (\(\Gamma\vdash t:\!T\)) and \emph{inference} (\(\Gamma\vdash t\Rightarrow T\)) modes to localise where
+conversion (\(\equiv\)) needs to be solved\cite{bidirectional-cic,tc-cic}.  
+Lean 4 pushes most reductions eagerly (strong head β-normalisation) to minimise expensive definalisation at the leaves\cite{lean4-survey,lean4lean}.  
+
+\subsection{Conversion and Normalisation}
+All kernels rely on decidable conversion: two terms are definitionally equal iff their
+normal forms are syntactically identical under β (and sometimes ι, ζ, δ) reduction.  
+Coq uses a weak-head reduction with on-the-fly unfolding of transparent constants;  
+Agda employs \emph{proof-irrelevance annotations} to erase compile-time proofs before equality checking, thereby accelerating normalisation\cite{agda-note}.  
+
+\subsection{Universe Management}
+Lean 4 and Coq feature cumulative universe hierarchies.  Lean’s algorithm stores
+constraints in a union–find structure and relies on Tarjan’s algorithm for \(\le\)–closure\cite{lean4-survey}.  
+Agda instead treats universe levels as first-class terms subject to unification, simplifying metaprogramming at the cost of heavier constraints\cite{agda-guide}.  
+
+\section{Term Representation}
+\paragraph{Names.}  Coq, Lean and Agda all compile surface names to \emph{de Bruijn indices},
+ensuring α-equivalent terms share a binary encoding\cite{coq-core,lean4-survey}.  
+Isabelle and HOL Light keep explicit identifiers because their HOL core lacks binding-sensitive rules\cite{isabelle-manual,hollight-tut}.  
+
+\paragraph{Hash-Consing.}  Lean 4 hashes every node and maintains pointer equality to allow \(O(1)\) conversion checks on already-normalised sub-terms\cite{lean4-survey}.  HOL Light uses a related pointer-tagging trick for quick syntactic comparisons\cite{hollight-tut}.  
+
+\section{Elaboration Front-Ends}
+The elaborator translates user syntax (with holes, overloading, implicit arguments) into fully explicit kernel terms.
+Coq’s \code{Vernac} language feeds an OCaml elaborator that performs first-order unification followed by metavariable resolution\cite{coq-arch}.  
+Lean 4’s elaborator is written partly in Lean itself and exploits reflective tactics; it is intentionally \emph{not} in the trusted base\cite{lean4lean}.  
+Agda’s interactive mode allows partially written programs; its elaborator inserts `?`-holes and later solves them by constraint propagation\cite{agda-guide}.  
+
+\section{Automation and Tactics}
+While tactics are outside the trusted core, their output is merely a proof term later verified by the kernel, preserving soundness\cite{coq-arch}.  
+Isabelle/Isar uses a declarative proof language whose statements are compiled into kernel inferences\cite{isabelle-manual}.  
+
+\section{Persistence and Compilation}
+Coq compiles verified libraries into \code{.vo} objects that cache the normalised term and universe constraints to accelerate later replay; Lean 4 analogously stores \code{.olean} files\cite{lean4-survey}.  
+HOL Light relies on OCaml’s marshalled values, whereas Isabelle uses poly/ML heaps\cite{hollight-tut,isabelle-manual}.  
+
+\section{Verified Kernels}
+Research projects like \emph{Candle}, a CakeML-verified re-implementation of HOL Light, show that entire kernels can be machine-checked down to machine code\cite{candle}.  MetaCoq and Lean4Lean pursue analogous self-verification for CIC and Lean respectively\cite{metacoq,bidirectional-cic,lean4lean}.  
+
+\section{Conclusion (omitted)}
+% No conclusion per user request
+\bibliographystyle{plain}
+\begin{thebibliography}{10}
+
+\bibitem{coq-arch}
+C.~Paulin-Mohring.
+\newblock \emph{Introduction to the Coq Proof Assistant} (Course notes, 2025). [1]
+
+\bibitem{coq-core}
+Coq development team.
+\newblock \emph{Core Language Reference Manual}, version 8.18.0. [2]
+
+\bibitem{isabelle-manual}
+T.~Nipkow, L.~C. Paulson, et al.
+\newblock \emph{Isabelle System Manual}. [3][4]
+
+\bibitem{hollight-tut}
+J.~Harrison.
+\newblock \emph{HOL Light Tutorial}. [5]
+
+\bibitem{lean4-survey}
+X.~Tang.
+\newblock A Comprehensive Survey of the Lean 4 Theorem Prover. \emph{arXiv 2501.18639}, 2025. [6]
+
+\bibitem{lean4lean}
+M.~Carneiro.
+\newblock Lean4Lean: a Lean 4 kernel in Lean. GitHub repository, 2025. [22]
+
+\bibitem{agda-note}
+Q.~Pu.
+\newblock A Note on the Agda Codebase—Type Checking \& Reflection. HackMD, 2023. [8]
+
+\bibitem{agda-guide}
+Agda team.
+\newblock Quick Guide to Editing, Type Checking and Compiling Agda Code, 2022. [11]
+
+\bibitem{bidirectional-cic}
+M.~Lennon-Bertrand.
+\newblock Complete Bidirectional Typing for the Calculus of Inductive Constructions. \emph{ITP 2021}. [9]
+
+\bibitem{tc-cic}
+R.~Pollack.
+\newblock Type Checking in Pure Type Systems. Technical Report, 1994. [12]
+
+\bibitem{candle}
+A.~Kumar et al.
+\newblock Candle: A Verified Implementation of HOL Light. \emph{ITP 2022}. [10]
+
+\bibitem{metacoq}
+A.~Anand et al.
+\newblock MetaCoq project: certifying Coq’s metatheory. Project page, 2018. [9]
+
+\end{thebibliography}
+\end{document}

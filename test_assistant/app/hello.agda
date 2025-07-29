@@ -2,7 +2,7 @@ module hello where
 
 an-implication : { A B C : Set} -> ( A -> B) -> ( A -> B) -> ( B -> C ) -> A -> C
 
-an-implication g g' f x = ?
+an-implication g g' f x = f (g x)
 
 another-implication : { A B C : Set} -> ( A -> B) -> ( A -> B) -> ( B -> C ) -> A -> C
 
@@ -34,10 +34,3 @@ square : N -> N
 square n = n * n
 
 data ⊥ : Set where
-
-m^2 = 2n^2 
-
-irrationalSqrt2 : (m n : N) -> n ≡ zero ->  ⊥  -> square m ≡ ((suc (suc zero)) * square n) -> ⊥
-irrationalSqrt2 m n nNonZero absurd eq =  {!!}
-
-i

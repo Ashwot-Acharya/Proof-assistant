@@ -274,41 +274,139 @@ Then to write a  program (equivalent to proof) of the proposition $A \to B \to A
 
 
 
- \subsection{Martin Lof Type Theory }
-
-
-
- \subsection{Evolution of Type Theories}
-
-
-
-
-% Finally rigidify the basics refer to the original paper 
-
-
-
-% Update based on knowledge.....
-
+ \subsection{Martin-Löf Type Theory }
+    Martin-Löf Type Theory is the formal logic system that was developed to support constructive mathematics. It's often referred to as Intuitionstic Type Theory. It carries the use of dependent types and is the backbone of Proof Assistants.\\
+        The following types are also valid in this system.
+        \begin{itemize}
+            \item $\prod$-Type : The dependent function type, as mentioned in Table 1. it supports the interpretation of Universal Quantifier.
+            \item $\sum$-Type : The dependent sum type, equivalent to the Existential Quantifier.
+            \item Identity Type : Equality itself is internalized as a type in this system. Hence, we can judge if two terms are the same. By the correspondence, proofs are terms then this allows proof assistants to match proofs and declare their Equality.
+            
+        \end{itemize}
+        Furthermore, We also have \textbf{Type Universes}, Every Type itself can be assigned a Type. This creates a hierarchy of types. For example, $1:\mathbb{N},\mathbb{N}:Type:...$, The number 1 has type Natural, then Natural has a type called Type, which itself can have another type. Not to be interpreted as , a set being contained in another set, this gives rise to paradoxes. But rather take it as hierarchy of Universes. From this we can talk about Types themselves within our system, and  allow proof assistants to safely handle abstraction over types.\\
+        The results from  \cite{martinlof1972intuitionistic_theory} where this system was first introduced by Martin Löf, will be mentioned as necessary.
+        
+        .
 
 \section{General Architecture of Proof Assistants}
+The proof assistants follow a general architecture that adopts a design that seperates tiny,trusted kernel from progressively less trusted outer layer[]
+\begin{figure}[h]
+\centering
+\begin{tabular}{|c|}
+\hline
+\textbf{User Interfaces} (VS Code, Proof General, CoqIDE, etc.) \\\hline
+\textbf{Elaborator / Front-End}\\
+\hline
+\textbf{Tactic Engine \& Automation}\\
+\hline
+\textbf{Kernel (Type Checker + Inference Rules)}\\
+\hline
+\textbf{Logical Foundations (CIC, HOL, MLTT, …)}\\
+\hline
+\end{tabular}
+\caption{Standard proof-assistant layer cake.}
+\label{fig:layers}
+\end{figure}
 
 
+\subsection{The kernel} 
+At the heart of any proof assistant lies the kernel, which is a minimal and formally verified component responsible for enforcing the programming logical rules. kernel implements the foundational calculus or logic and validates every proof
+step by checking derivations against these rules. The kernel does't trust the computing base and checks for every proof , which ensures that the entire system depends on this critical component [Gordon, 1993][Paulson, 1987][The Coq Development Team, 2025].
+\subsection{Tatic Engine}
+Above the kernel layer is the tactic engine that assists users in constructing proofs interactively or automatically.
+Tactics provide programmable strategies to decompose proof goals into simpler subgoals which can be easier to prove. 
+Tactic implementations can become complex, but since any output they generate must be verified through the
+kernel before acceptance,system integrity is maintained [Nipkow et al., 2002][Delahaye, 2000]. 
+
+
+\subsection{Formal proof language}
+Proof assistants offer a dedicated programming language designed to express definitions, statements and proofs. These languages are typically Dependently typed,
+and allows implicit argument . they are highly readable and rigorous. Integration with tactic scripting enables a smooth blend of automated and manual proof development [Barras et al.,
+1997][Agda Team, 2023][Lean Development Group, 2024].
+
+\subsection{Type checker and inference engine}
+The type checker enforces logical consistency by validating the written expression , checking if it meets the system's typing
+rules ,importantly preventing paradoxical constructs. Proof assistant often use bi-directional type checking and other 
+complex inference algorithms.
+
+\subsection{User Interface} 
+Effective user interfaces (UIs) enable seamless interaction with the proof assistant. 
+Modern UIs include integrated development environments (IDEs) or editor plugins that provide syntax highlighting, error diagnostics, real-time proof state visualization,
+and automated tactic suggestion. Such interfaces significantly enhance productivity and make formal methods more accessible to a wider audience [CoqIDE, 2025][Isabelle/jEdit, 2023].
+\subsection{formal libraries}
+Proof assistants come with extensive, rigorously verified libraries that
+encapsulate fundamental theories (e.g., arithmetic, set theory, algebra), supporting rapid development of
+complex formalizations without reinventing foundational results.
+These libraries grow continuously and provide a shared repository of reusable components vital for large-scale verification projects [Coq Standard Library, 2025][Mathlib, 2025][Isabelle Archive of Formal Proofs].
 \section{Upon Some Proof Assistants and Comparative Study}
-\subsection{Coq}
+\subsection{ Agda}
+Agda  is a Dependently typed functional programming language and proof assistant. Extension of Martin-Lof's Type theory. (agda documentation) 
+In Dependently typed programming language there is no clear distinction between types and values , and types can depend on arbitary values and may appear as results of ordinary functions. 
+This feature of Dependently typed programs allows us to encode properties of values as type of proofs of that property, allowing us to use Dependent type programming as logic.  (Dependently Typed Programming in Agda) 
 
-\subsection{Lean}
-
-\subsection{Isabelle}
-
-\subsection{Agda}
+Every agda file has a top level module which corresponds to name of the file and the main programs goes inside the top level module.[]
+Another key component of agda is pattern matching. Pattern matching is a mechanism for analysing the structure of values. When inductively defined  datatypes are introduced the
+pattern matching becomes even more powerful as patten matching on one value can give the information about another value (thesis) 
 
 
-\section{ Agda}
+\subsection{ Type checking algorithm}
+Type checking algorithm in agda is done by first taking a sequence of patterns and checking against telescope  
+\subsection{Rocq}
+Rocq formally known as coq is another proof assistant or interactive theorem prover and lets you formalize mathematical proofs. becoming famous for the Formalization of four color theorem  .
+Rocq is vastly different from agda in terms of proofs, While Agda is type theory based direct construction proof assistant Rocq on the other hand is tatic based. 
+In Rocq users generate proofs by entering a series of tatics, which constitute steps of proofs
+\subsubsection{Tatics}
+    Mainly there are two ways of generating proofs forward reasoning and backward reasoning  \\ 
+    In forward reasoning the simpler and smaller statements are proved and constructed to bigger statements and theorem, combining to prove the theorem at the end \\
+    In Backward reasoning proofs begins with theorem statement and gradually transformed into sub-statement or goals which are proven. 
+    Rcoq and Tatics heavily relies on Backward reasoning models.
+    A tatic by itself may fully prove a goal or divide into sub goals to prove and most tatic in rocq require certain condiditon or elements to reduce a goal.
+    some tatic are automatic and can solve complex goals\\ (doc website)
+    \subsubsection{kernel}
+
+    Rocq's kernel is based on PCUIC , a Dependently typed lambda calculus extended with various other rules and features. Rocq's core kernel converts all the notations and implicit arguments into core language which is the calculus of inductive construction. 
+    the kernel wil verify the proof term built by the tatics . This type of seperation is called the "de Bruijn criterion" and makes it so that only the smaller components
+    like the kernel is trusted and the entire program is checked by the kernel.
+
+\subsubsection{Type checking}
+        In Rocq the syntaxes and typing rules are specified so that they remain mathematicaly precise and machine verifiable. For that the type system is first described declaratively, then refined to
+        algorithmic specification. Rocq introduces a bi-directional infer and check type system that guides implementation.The checker is implemented in coq itsel. Much of type checking relies on deciding if two tpes are equivalent by Conversion or if one is the subtype of 
+        other by cumulativity which is very challenging because these relations depend on reduction. The type checker is constructed as bi-directional algorithm and to ensure soundess the checker carries proof carrying code and returns the proof along with 
+        the type checking decision. Every critical theoretic properity need for type checking is proved or assumed axiomatically to be true.  (Correct and Complete Type Checking and Certified Erasure for Coq, in Coq)
+
+
+
+\subsection{Lean} 
+Lean theorem prover is a proof assistant developed by leonardo di-moura at microsoft in 2013. one way to prove theorem in lean is to 
+build from assersion which follows the calculus of construction. Lean treats any two element say 
+$ t1 \ t2: p $ to be equal, which is known as proof irrelevance. And allows for proposition as types logic. calculational proofs can also be written in lean and starts 
+with the word calc. 
+
+Another way Like Rocq Lean can also relie on tatics. Tatics are useful for construction and destruction of data and there are many built in tatics avaible in lean. One of the major advantage of lean 
+is that you can mix term-style and tatic-style proof writing and pass freely between the two. (lean-lang.org) Lean allows for unsafe declaration but cannot be exported
+Lean export file 
+
+
+
 
 
 \section{Formalization of Some Proofs}
+Every agda file begins with a top level module declaration which corresponds to the name of the file, 
+and the following code is written under the, module. 
+eg: 
+\begin{verbatim}
+        module hello where
+\end{verbatim}
+
+An example of an implication in agda could be 
+\begin{verbatim}
+        module implication_module
+        an-implication: {A B C : set} -> (A->B) -> (B -> C) -> A -> C 
+        an-implication g g' f = g'(g x)
+\end{verbatim}
 
 
+ 
 
 \section{Challenges and Workarounds}
 
