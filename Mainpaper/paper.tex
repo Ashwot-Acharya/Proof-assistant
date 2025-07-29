@@ -28,13 +28,57 @@
 
 \maketitle
 
+\clearpage
+\section*{}
+\addcontentsline{toc}{section}{\textbf{ABSTRACT}}  
+
 \begin{abstract}
+This report explores the theoretical foundations and working principles of proof assistants, with a focus on Agda. It introduces key concepts from logic, type theory, and the Curry–Howard correspondence that underlie formal verification. We discuss how proofs are treated as programs and propositions as types in dependently typed systems. A comparative study of proof assistants such as Agda, Coq (Rocq), and Lean is included, highlighting their kernel architectures and type-checking algorithms. Finally, we demonstrate formalization of selected logical proofs in Agda, reflecting on challenges and limitations encountered during implementation.
 \end{abstract}
+\clearpage
 
 \tableofcontents
 \newpage
 
 \section{Introduction}
+
+In 1998 Thomas C. Hales announced that he had proved the kepler conjecture
+(Solane,1998) However the peer review took over 4 years especially due to the proof
+being incredibely difficult to check, with over a dozen of mathematician to refree
+the proof and although they were 99% certain it was not untill the proof became
+formalized that they were able to completely validate the correctness of the proof,
+which according to Thomas Hales, would have taken 20 person-year of manual work.
+[Szpiro, G, 2003]
+
+Proof assistants helps with formalization of mathematical proofs in computer which
+enables for their verification digitally. Some exhaustive proofs may contain large
+number of cases which is not feasible to write and verify manually and requires
+computer assitance.
+Such Proof assistants (systems) work by treating proofs as computational objects
+and checking them using strict logical rules. To enable this, proofs must be writ-
+ten in a formal language that removes ambiguity and allows machines to interpret
+them accurately. Underlying this process is a theoretical framework—often type
+theory—that defines how propositions and proofs relate to each other.
+This method bridges programming and logic: writing a proof resembles writing a
+program, and verifying it is like type-checking. By interpreting logic computation-
+ally, proof assistants ensure that every proof is exact, complete, and verifiable by
+a machine. This project invloves investigating this process. 
+
+\subsection{Objectives}
+\begin{enumerate}
+    \item To explore the correspondence between Proofs and Programs, Type Theory and Intuitionstic Logic.
+    \item To investigate a current exsisting proof assistants (Agda) and identify the mathematics behind it.
+    \item To formalize some selected proofs in Agda and demonstrate verification process.
+\end{enumerate}
+
+\subsection{Limitations}
+\begin{enumerate}
+    \item This study fails to rigorously present the Type Checking Algorithm.
+    \item Avoids formalization of complicated proofs.
+\end{enumerate}
+
+
+
 
 \section{Foundations}
 This section sheds light upon some fundamental concept on which Proof Assistants work along with how a proof should be written so that it can be mechanically verified.
@@ -261,7 +305,8 @@ Existential Quantifier ($\exists x. A(x)$) & Dependent Sum ($\Sigma x : A. B(x)$
 \end{table}\\
 The use of dependent product and sum for the Quantifier highlights the necessity of Dependent Type Theory. The rules  (Proof Terms only), equivalent to Deduction rules of Intuitionstic Logic are in Section 2.4 of \cite{Pfenning2004}. Note that this does not contain the rule for predicates. While writing a proof in a proof assistant our reasoning follows deduction rules of this kind. 
 Then to write a  program (equivalent to proof) of the proposition $A \to B \to A$, we need to construct a function that takes term of type A , term of type B and returns term of type A, that is $\lambda a{:}A.\lambda b{:}B.t{:}A $ which proceeds as
-
+\begin{proposition}
+    $A \to B \to A$
    \begin{prooftree}
   \AxiomC{}
   \RightLabel{\scriptsize var}
@@ -271,6 +316,7 @@ Then to write a  program (equivalent to proof) of the proposition $A \to B \to A
   \RightLabel{\scriptsize lam}
   \UnaryInfC{$\vdash \lambda a{:}A.\lambda b{:}B.\ a : A \rightarrow B \rightarrow A$}
 \end{prooftree}
+\end{proposition}
 
 
 
@@ -312,14 +358,14 @@ The proof assistants follow a general architecture that adopts a design that sep
 \subsection{The kernel} 
 At the heart of any proof assistant lies the kernel, which is a minimal and formally verified component responsible for enforcing the programming logical rules. kernel implements the foundational calculus or logic and validates every proof
 step by checking derivations against these rules. The kernel does't trust the computing base and checks for every proof , which ensures that the entire system depends on this critical component [Gordon, 1993][Paulson, 1987][The Coq Development Team, 2025].
-\subsection{Tatic Engine}
+\subsection{Tactic Engine}
 Above the kernel layer is the tactic engine that assists users in constructing proofs interactively or automatically.
 Tactics provide programmable strategies to decompose proof goals into simpler subgoals which can be easier to prove. 
 Tactic implementations can become complex, but since any output they generate must be verified through the
 kernel before acceptance,system integrity is maintained [Nipkow et al., 2002][Delahaye, 2000]. 
 
 
-\subsection{Formal proof language}
+\subsection{Formal Proof language}
 Proof assistants offer a dedicated programming language designed to express definitions, statements and proofs. These languages are typically Dependently typed,
 and allows implicit argument . they are highly readable and rigorous. Integration with tactic scripting enables a smooth blend of automated and manual proof development [Barras et al.,
 1997][Agda Team, 2023][Lean Development Group, 2024].
@@ -333,11 +379,20 @@ complex inference algorithms.
 Effective user interfaces (UIs) enable seamless interaction with the proof assistant. 
 Modern UIs include integrated development environments (IDEs) or editor plugins that provide syntax highlighting, error diagnostics, real-time proof state visualization,
 and automated tactic suggestion. Such interfaces significantly enhance productivity and make formal methods more accessible to a wider audience [CoqIDE, 2025][Isabelle/jEdit, 2023].
-\subsection{formal libraries}
+\subsection{Formal Libraries}
 Proof assistants come with extensive, rigorously verified libraries that
 encapsulate fundamental theories (e.g., arithmetic, set theory, algebra), supporting rapid development of
 complex formalizations without reinventing foundational results.
 These libraries grow continuously and provide a shared repository of reusable components vital for large-scale verification projects [Coq Standard Library, 2025][Mathlib, 2025][Isabelle Archive of Formal Proofs].
+
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.7\textwidth]{fig/ui.png} 
+  
+\end{figure}
+\cite{Geuvers20091}
+
 \section{Upon Some Proof Assistants and Comparative Study}
 \subsection{ Agda}
 Agda  is a Dependently typed functional programming language and proof assistant. Extension of Martin-Lof's Type theory. (agda documentation) 
@@ -348,62 +403,209 @@ Every agda file has a top level module which corresponds to name of the file and
 Another key component of agda is pattern matching. Pattern matching is a mechanism for analysing the structure of values. When inductively defined  datatypes are introduced the
 pattern matching becomes even more powerful as patten matching on one value can give the information about another value (thesis) 
 
+\subsubsection {Kernel}
+Agda's Kernel is written in Haskell. With no seperate tactic layer, the kernel is directly involved in all proof construction making it minimalistic yet more rigid. It tightly integrates normalization, which is a direct application of the Normalization Theorem in \cite{martinlof1972intuitionistic_theory}.
 
-\subsection{ Type checking algorithm}
-Type checking algorithm in agda is done by first taking a sequence of patterns and checking against telescope  
+\subsubsection{ Type Checking algorithm}
+Agda uses a bidirectional type checking algorithm grounded in Martin-Löf Type Theory, emphasizing manual proof construction and transparency. The checker alternates between inferring types for expressions and checking expressions against known types, supported by normalization by evaluation (NbE) to verify definitional equality. Unlike Lean or Coq, Agda offers minimal automation—there are no tactics, typeclass resolution, or automatic proof search. This makes it more predictable but also more labor-intensive. In contrast, Lean and Coq automate many aspects of type inference and proof construction via elaborators and tactics, with Coq relying on a trusted kernel and Lean integrating extensible unification and metaprogramming. Agda prioritizes explicitness and formal clarity, making it ideal for foundational studies in type theory.
+\cite{depPUlf}
 \subsection{Rocq}
-Rocq formally known as coq is another proof assistant or interactive theorem prover and lets you formalize mathematical proofs. becoming famous for the Formalization of four color theorem  .
-Rocq is vastly different from agda in terms of proofs, While Agda is type theory based direct construction proof assistant Rocq on the other hand is tatic based. 
-In Rocq users generate proofs by entering a series of tatics, which constitute steps of proofs
-\subsubsection{Tatics}
+Rocq formerly known as coq is another proof assistant or interactive theorem prover and lets you formalize mathematical proofs. becoming famous for the Formalization of four color theorem  .
+Rocq is vastly different from agda in terms of proofs, While Agda is type theory based direct construction proof assistant Rocq on the other hand is tactic based. 
+In Rocq users generate proofs by entering a series of tactics, which constitute steps of proofs.
+\subsubsection{Tactics}
     Mainly there are two ways of generating proofs forward reasoning and backward reasoning  \\ 
     In forward reasoning the simpler and smaller statements are proved and constructed to bigger statements and theorem, combining to prove the theorem at the end \\
     In Backward reasoning proofs begins with theorem statement and gradually transformed into sub-statement or goals which are proven. 
-    Rcoq and Tatics heavily relies on Backward reasoning models.
-    A tatic by itself may fully prove a goal or divide into sub goals to prove and most tatic in rocq require certain condiditon or elements to reduce a goal.
-    some tatic are automatic and can solve complex goals\\ (doc website)
-    \subsubsection{kernel}
+    Rcoq and Tactics heavily relies on Backward reasoning models.
+    A tactic by itself may fully prove a goal or divide into sub goals to prove and most tactic in rocq require certain condition or elements to reduce a goal.
+    some tactic are automatic and can solve complex goals\\ (doc website)
+    \subsubsection{Kernel}
 
-    Rocq's kernel is based on PCUIC , a Dependently typed lambda calculus extended with various other rules and features. Rocq's core kernel converts all the notations and implicit arguments into core language which is the calculus of inductive construction. 
-    the kernel wil verify the proof term built by the tatics . This type of seperation is called the "de Bruijn criterion" and makes it so that only the smaller components
-    like the kernel is trusted and the entire program is checked by the kernel.
+    Rocq's kernel is based on Predicative Calculus of Cumulative Inductive Constructions(PCUIC) , a Dependently typed lambda calculus extended with various other rules and features. Rocq's core kernel converts all the notations and implicit arguments into core language which is the calculus of inductive construction. 
+    the kernel wil verify the proof term built by the tactics . This type of seperation is called the "de Bruijn criterion" and makes it so that only the smaller components
+    like the kernel is trusted and the entire program is checked by the kernel. Furthermore, its written in Coq itself (extracted to OCaml) i.e a Kernel being a program itself, its correctness is verified within it.
 
-\subsubsection{Type checking}
+\subsubsection{Type checking Algorithm }
         In Rocq the syntaxes and typing rules are specified so that they remain mathematicaly precise and machine verifiable. For that the type system is first described declaratively, then refined to
         algorithmic specification. Rocq introduces a bi-directional infer and check type system that guides implementation.The checker is implemented in coq itsel. Much of type checking relies on deciding if two tpes are equivalent by Conversion or if one is the subtype of 
-        other by cumulativity which is very challenging because these relations depend on reduction. The type checker is constructed as bi-directional algorithm and to ensure soundess the checker carries proof carrying code and returns the proof along with 
-        the type checking decision. Every critical theoretic properity need for type checking is proved or assumed axiomatically to be true.  (Correct and Complete Type Checking and Certified Erasure for Coq, in Coq)
+        other by cumulatively which is very challenging because these relations depend on reduction. The type checker is constructed as bi-directional algorithm and to ensure soundess the checker carries proof carrying code and returns the proof along with 
+        the type checking decision. Every critical theoretic properity need for type checking is proved or assumed axiomatically to be true. The bidirectional type checking employed by Rocq is weak compared to Agda but it relies heavily on conversion. (Correct and Complete Type Checking and Certified Erasure for Coq, in Coq)
 
 
 
 \subsection{Lean} 
-Lean theorem prover is a proof assistant developed by leonardo di-moura at microsoft in 2013. one way to prove theorem in lean is to 
-build from assersion which follows the calculus of construction. Lean treats any two element say 
+Lean theorem prover is a proof assistant developed by Leonardo Di-Moura at Microsoft in 2013. one way to prove theorem in lean is to 
+build from assertion which follows the calculus of construction. Lean treats any two element say 
 $ t1 \ t2: p $ to be equal, which is known as proof irrelevance. And allows for proposition as types logic. calculational proofs can also be written in lean and starts 
 with the word calc. 
 
-Another way Like Rocq Lean can also relie on tatics. Tatics are useful for construction and destruction of data and there are many built in tatics avaible in lean. One of the major advantage of lean 
-is that you can mix term-style and tatic-style proof writing and pass freely between the two. (lean-lang.org) Lean allows for unsafe declaration but cannot be exported
-Lean export file 
+Another way Like Rocq Lean can also relie on tactics. Tactics are useful for construction and destruction of data and there are many built in tactics avaible in lean. One of the major advantage of lean 
+is that you can mix term-style and tactic-style proof writing and pass freely between the two. 
+The ease of working with Lean is responsible for its popularity against other Proof Assistants.
+% (lean-lang.org) Lean allows for unsafe declaration but cannot be exported
+% Lean export file 
+\subsubsection{Kernel}
+Lean's kernel is written in C++ (Lean 3) and C (Lean 4). The kernel much like Coq is based of Calculus of Inductive Constructions and employs conversion checking. Though its elaboration and tactic system is large, it is relatively less rigid but improves usability. Its performance based and offers flexibility.
+Lean's kernel is implemented in two layers. The First layer contains the
+type checker and APIs for creating and manipulating terms, declarations, and
+the environment and the second layer provides additional components such as inductive families and quotient types. When the kernel is
+instantiated, one selects which of these components should be used.
+\cite{Lean}
+\subsubsection{Type Checking Algorithm}
+Likewise,the Bidirectional algorithm is applied here too. But the strength of Lean lies in its smart elaboration. Lean offers coercion, backtracking and overloading. 
+
+\subsection{The Bidirectional Type Checking Algorithm }
+
+At its core, this algorithm works on two modes 
+\begin{itemize}
+    \item Checking Mode $(\Gamma \vdash M \leftarrow A )$ Given the term M and an expectied type A , the task is to verify that M has type A. Its done when the type is known or can be known then propagated from the context.
+    \item Synthesis (Inference) Mode  ($\Gamma \vdash M \rightarrow A$ ) When the type is known, the job is to infer it. That is synthesize unique type A for the term M. Since the type is not available from the context $\Gamma$ , it needs to be determined upwards.
+    
+\end{itemize}
+The checking and infering in two directions (from or to context $\Gamma$) led it to be called Bidirectional .
+\\
 
 
 
-
+\clearpage
 
 \section{Formalization of Some Proofs}
-Every agda file begins with a top level module declaration which corresponds to the name of the file, 
-and the following code is written under the, module. 
-eg: 
+
+
+\subsection{Defining Natural Numbers, Equality and Proof of Assocaitive and Commutative Properties}
 \begin{verbatim}
-        module hello where
+
+
+data N : Set where
+    zero : N 
+    suc : N -> N 
+
+{-# BUILTIN NATURAL N #-}
+
+
+--Equality
+data _==_ { A : Set } ( x : A ) : A -> Set where 
+    refl : x == x 
+
+cong : {A B : Set } ( f : A -> B ) { x y : A}
+    -> x == y
+    -> f x == f y
+cong f refl = refl 
+sym : forall { A : Set } { x y : A}
+    -> x == y
+    -> y == x 
+sym refl = refl
+
+trans : { A : Set } { x y z : A}
+    -> x == y
+    -> y == z
+    -> x == z
+
+trans refl refl = refl 
+
+{-# BUILTIN EQUALITY _==_ #-}
+
+infix 4 _==_
+
+
+--ADDITION
+
+_+_ : N -> N -> N 
+zero + x = x
+suc x + y = suc(x + y)
+
+
+--ZERO
+zero-+ : ( a : N ) -> ( ( zero + a ) == a )
+zero-+ a = refl
+
++-zero : ( a : N ) -> ( ( a + zero ) == a )
++-zero zero = refl
++-zero (suc a) = cong suc (+-zero a)
+
+--LEMMA FOR COMMUTATIVITY
++-suc : forall x y -> x + suc y == suc (x + y)
++-suc zero y = refl
++-suc (suc x) y = cong suc (+-suc x y)
+
+
+--ASSOCIATIVITY
+assoc-+ : forall x y z -> (x + y) + z == x + (y + z)
+assoc-+ zero y z = refl
+assoc-+ (suc x) y z = cong suc (assoc-+ x y z)
+
+--COMMUTATIVITY
++-comm : ( a b : N) -> ( ( a + b ) == ( b + a ) )
++-comm a zero = +-zero a 
++-comm a (suc b) = trans (+-suc a b) (cong suc (+-comm a b))
+
+
 \end{verbatim}
 
-An example of an implication in agda could be 
+\subsection{Formalizing Proposition 2.3 and 2.4 }
 \begin{verbatim}
-        module implication_module
-        an-implication: {A B C : set} -> (A->B) -> (B -> C) -> A -> C 
-        an-implication g g' f = g'(g x)
+module props where
+
+open import Agda.Primitive using (Level; lzero)
+
+open import Data.Product using (Sigma; _,_)
+
+variable
+  l : Level
+  X : Set l
+  A B : X → Set l
+  s : X
+
+
+prop23 : (forall x → A x → B x) → (s : X) → A s → Sigma X B
+prop23 allImp s aS = s , allImp s aS
+--Replace sigma with greek alphabet while loading.
+
+
+prop24 : forall {A B : Set} -> A -> B -> A
+prop24 a b = a
 \end{verbatim}
+
+\subsection{DeMorgan's Law}
+\begin{verbatim}
+    open import Agda.Primitive using (Level; lzero)
+open import Data.Product using (_×_; _,_)
+open import Data.Sum using (_⊎_; inj₁; inj₂)
+open import Relation.Nullary using (Dec; yes; no)
+open import Data.Empty using (⊥; ⊥-elim)
+open import Relation.Nullary.Negation using (¬_)
+
+
+--One Direction
+deMorganOneWay : ∀ {ℓ} {P Q : Set ℓ} → (¬ P) ⊎ (¬ Q) → ¬ (P × Q)
+deMorganOneWay (inj₁ np) (p , q) = np p
+deMorganOneWay (inj₂ nq) (p , q) = nq q
+
+--Converse, Requires Non Constructive Assumptions
+deMorganOtherWay :
+  ∀ {ℓ} {P Q : Set ℓ}
+  → Dec P
+  → Dec Q
+  → ¬ (P × Q)
+  → (¬ P) ⊎ (¬ Q)
+deMorganOtherWay (yes p) _ notPQ = inj₂ (λ q → notPQ (p , q))
+deMorganOtherWay (no np) (yes q) _ = inj₁ np
+deMorganOtherWay (no np) (no nq) _ = inj₁ np  -- or inj₂ nq
+
+
+\end{verbatim}
+\subsection{Euclid's Theorem of Primes }
+
+
+
+\subsection{Euclid's Algorithm's Proof}
+
+\subsection{Attempt to Constructive Reals}
+
+
+
+
 
 
  
