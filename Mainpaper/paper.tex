@@ -11,7 +11,22 @@
 \usepackage{braket}
 \geometry{a4paper, margin=1in}
 \usepackage{titlesec}
+\usepackage{newunicodechar}
 \usepackage{tikz}
+\DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}    % ∀
+\DeclareUnicodeCharacter{2113}{\ensuremath{\ell}}       % ℓ
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}% →
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}     % ×
+\DeclareUnicodeCharacter{228E}{\ensuremath{\uplus}}   % ⊎
+\DeclareUnicodeCharacter{22A5}{\ensuremath{\bot}}       % ⊥
+\DeclareUnicodeCharacter{00AC}{\ensuremath{\neg}}       % ¬
+\DeclareUnicodeCharacter{2081}{\textsubscript{1}}       % ₁
+\DeclareUnicodeCharacter{2082}{\textsubscript{2}}       % ₂
+\DeclareUnicodeCharacter{03BB}{\ensuremath{\lambda}}    % λ
+\DeclareUnicodeCharacter{03A3}{\ensuremath{\Sigma}}   % Σ
+
+
+
 \usetikzlibrary{arrows.meta, positioning}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
@@ -558,12 +573,11 @@ variable
   s : X
 
 
-prop23 : (forall x → A x → B x) → (s : X) → A s → Sigma X B
+prop23 : (∀ x → A x → B x) → (s : X) → A s → Σ X B
 prop23 allImp s aS = s , allImp s aS
---Replace sigma with greek alphabet while loading.
 
 
-prop24 : forall {A B : Set} -> A -> B -> A
+prop24 : ∀ {A B : Set} -> A -> B -> A
 prop24 a b = a
 \end{verbatim}
 
