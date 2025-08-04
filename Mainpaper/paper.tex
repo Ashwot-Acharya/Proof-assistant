@@ -5,6 +5,7 @@
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{hyperref}
+\usepackage{graphicx}
 \usepackage{cite}
 \usepackage{geometry}
 \usepackage{bussproofs}
@@ -24,9 +25,12 @@
 \DeclareUnicodeCharacter{2082}{\textsubscript{2}}       % ₂
 \DeclareUnicodeCharacter{03BB}{\ensuremath{\lambda}}    % λ
 \DeclareUnicodeCharacter{03A3}{\ensuremath{\Sigma}}   % Σ
-
-
-
+\geometry{
+  left=1.2in,
+  right=1.2in,
+  top=1.1in,
+  bottom=1.1in
+}
 \usetikzlibrary{arrows.meta, positioning}
 \titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
@@ -36,21 +40,112 @@
 \small Kathmandu University 
 \small \texttt{}
 }
-%mention supervisor
 \date{\today}
 
 \begin{document}
 
-\maketitle
+\begin{titlepage}
+    \begin{center}
+        % Title
+        \Large\bfseries
+        Working Principles of Proof Assistants and Formalization of some proofs in Agda\\[2cm]
+        
+        \normalsize
+        SECOND YEAR PROJECT REPORT\\[2ex]
+        
+        \small
+        SUBMITTED IN PARTIAL FULFILLMENT OF THE REQUIREMENTS FOR\\
+        THE DEGREE OF MSC. IN COMPUTATIONAL MATHEMATICS\\[2cm]
+        
+        \normalsize
+        BY\\[2ex]
+        \textbf{Ashwot Acharya, Bishesh Bohora, Supreme Chaudhary}\\[2cm]
+        
+        \includegraphics[width=4cm]{logo.png}\\[2cm]
+        % Replace with your logo file. Place 'ku_logo.png' in the same folder!
+        
+        DEPARTMENT OF MATHEMATICS\\
+        KATHMANDU UNIVERSITY\\
+        DHULIKHEL, NEPAL\\[2ex]
+                
+        \vfill
+    \end{center}
+\end{titlepage}
+
+\thispagestyle{empty}
+
+\begin{center}
+    \textbf{\LARGE CERTIFICATION}
+\end{center}
+
+\vspace{1em}
+
+This project entitled ``\textbf{Working Principles of Proof Assistants and Formalization of some proofs in Agda}'' is carried out under our supervision for the specified entire period satisfactorily and is hereby certified as a work done by the following students:
+\begin{enumerate}
+    \item Ashwot Acharya
+    \item Bishesh Bohora 
+    \item Supreme Chaudhary
+\end{enumerate}
+in partial fulfillment of the requirements for the degree of B.Sc. in Computational Mathematics, Department of Mathematics, Kathmandu University, Dhulikhel, Nepal.
+
+\vspace{3em}
+
+\noindent
+\begin{minipage}{0.45\textwidth}
+\rule{6cm}{0.5pt}\\
+\textbf{M.r K.B Manandhar }\\
+Assistant Professor\\
+Department of Mathematics,\\
+School of Science\\ Kathmandu University,\\
+Dhulikhel, Kavre, Nepal\\
+Date: August, 2025
+
+\end{minipage}
+
+
+\vspace{2.5em}
+
+\noindent
+\\ \\ 
+\textbf{APPROVED BY:}\\
+I hereby declare that the candidate qualifies to submit this report of \textbf{Working Principles of Proof Assistants and Formalization of some proofs in Agda} to the Department of Mathematics.
+\\
+\vspace{1.7em}
+\\
+\noindent
+\rule{6cm}{0.5pt}\\ \\
+\textbf{Head of Department }\\
+Department of Mathematics\\
+School of Science\\
+Kathmandu University\\
+Date: August, 2025
+
+\vspace{2em}
+
+\begin{center}
+   {\small ii}
+\end{center}
+\clearpage
+
+\addcontentsline{toc}{section}{\textbf{ABSTRACT}}  
+\clearpage
+
+\begin{center}
+    \textbf{\LARGE ACKNOWLEDGMENTS}
+\end{center}
+    First and foremost, we would like to thank our supervisor Mr K.B Manandhar sir for guiding us through this research project.
+Their feedback and suggestions helped us overcome numerous challenges and shaped
+our understanding of the subject matter.
+
 
 \clearpage
-\section*{}
-\addcontentsline{toc}{section}{\textbf{ABSTRACT}}  
 
 \begin{abstract}
 This report explores the theoretical foundations and working principles of proof assistants, with a focus on Agda. It introduces key concepts from logic, type theory, and the Curry–Howard correspondence that underlie formal verification. We discuss how proofs are treated as programs and propositions as types in dependently typed systems. A comparative study of proof assistants such as Agda, Coq (Rocq), and Lean is included, highlighting their kernel architectures and type-checking algorithms. Finally, we demonstrate formalization of selected logical proofs in Agda, reflecting on challenges and limitations encountered during implementation.
 \end{abstract}
 \clearpage
+
+
 
 \tableofcontents
 \newpage
