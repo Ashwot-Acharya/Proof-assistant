@@ -1,6 +1,5 @@
 \documentclass[12pt]{article}
 
-% ======== Packages =========
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
@@ -522,39 +521,37 @@ Agda uses a bidirectional type checking algorithm grounded in Martin-Löf Type T
 \subsection{Rocq}
 Rocq formerly known as coq is another proof assistant or interactive theorem prover and lets you formalize mathematical proofs. becoming famous for the Formalization of four color theorem  .
 Rocq is vastly different from agda in terms of proofs, While Agda is type theory based direct construction proof assistant Rocq on the other hand is tactic based. 
-In Rocq users generate proofs by entering a series of tactics, which constitute steps of proofs.
+In Rocq users generate proofs by entering a series of tactics, which constitute steps of proofs. \cite{rocq_manual}
 \subsubsection{Tactics}
     Mainly there are two ways of generating proofs forward reasoning and backward reasoning  \\ 
     In forward reasoning the simpler and smaller statements are proved and constructed to bigger statements and theorem, combining to prove the theorem at the end \\
     In Backward reasoning proofs begins with theorem statement and gradually transformed into sub-statement or goals which are proven. 
     Rcoq and Tactics heavily relies on Backward reasoning models.
     A tactic by itself may fully prove a goal or divide into sub goals to prove and most tactic in rocq require certain condition or elements to reduce a goal.
-    some tactic are automatic and can solve complex goals\\ (doc website)
+    some tactic are automatic and can solve complex goals\\ \cite{rocq_tactics}
     \subsubsection{Kernel}
 
     Rocq's kernel is based on Predicative Calculus of Cumulative Inductive Constructions(PCUIC) , a Dependently typed lambda calculus extended with various other rules and features. Rocq's core kernel converts all the notations and implicit arguments into core language which is the calculus of inductive construction. 
     the kernel wil verify the proof term built by the tactics . This type of seperation is called the "de Bruijn criterion" and makes it so that only the smaller components
-    like the kernel is trusted and the entire program is checked by the kernel. Furthermore, its written in Coq itself (extracted to OCaml) i.e a Kernel being a program itself, its correctness is verified within it.
+    like the kernel is trusted and the entire program is checked by the kernel. Furthermore, its written in Coq itself (extracted to OCaml) i.e a Kernel being a program itself, its correctness is verified within it. \cite{rocq_core_language}
 
 \subsubsection{Type checking Algorithm }
         In Rocq the syntaxes and typing rules are specified so that they remain mathematicaly precise and machine verifiable. For that the type system is first described declaratively, then refined to
         algorithmic specification. Rocq introduces a bi-directional infer and check type system that guides implementation.The checker is implemented in coq itsel. Much of type checking relies on deciding if two tpes are equivalent by Conversion or if one is the subtype of 
         other by cumulatively which is very challenging because these relations depend on reduction. The type checker is constructed as bi-directional algorithm and to ensure soundess the checker carries proof carrying code and returns the proof along with 
-        the type checking decision. Every critical theoretic properity need for type checking is proved or assumed axiomatically to be true. The bidirectional type checking employed by Rocq is weak compared to Agda but it relies heavily on conversion. (Correct and Complete Type Checking and Certified Erasure for Coq, in Coq)
-
+        the type checking decision. Every critical theoretic properity need for type checking is proved or assumed axiomatically to be true. The bidirectional type checking employed by Rocq is weak compared to Agda but it relies heavily on conversion. (Correct and Complete Type Checking and Certified Erasure for Coq, in Coq) \cite{type_checking}
 
 
 \subsection{Lean} 
 Lean theorem prover is a proof assistant developed by Leonardo Di-Moura at Microsoft in 2013. one way to prove theorem in lean is to 
 build from assertion which follows the calculus of construction. Lean treats any two element say 
 $ t1 \ t2: p $ to be equal, which is known as proof irrelevance. And allows for proposition as types logic. calculational proofs can also be written in lean and starts 
-with the word calc. 
+with the word calc.  \cite{lean_functional_programming}
 
 Another way Like Rocq Lean can also relie on tactics. Tactics are useful for construction and destruction of data and there are many built in tactics avaible in lean. One of the major advantage of lean 
 is that you can mix term-style and tactic-style proof writing and pass freely between the two. 
-The ease of working with Lean is responsible for its popularity against other Proof Assistants.
-% (lean-lang.org) Lean allows for unsafe declaration but cannot be exported
-% Lean export file 
+The ease of working with Lean is responsible for its popularity against other Proof Assistants.\cite{lean_theorem_proving}
+
 \subsubsection{Kernel}
 Lean's kernel is written in C++ (Lean 3) and C (Lean 4). The kernel much like Coq is based of Calculus of Inductive Constructions and employs conversion checking. Though its elaboration and tactic system is large, it is relatively less rigid but improves usability. Its performance based and offers flexibility.
 Lean's kernel is implemented in two layers. The First layer contains the
