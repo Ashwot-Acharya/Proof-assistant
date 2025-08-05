@@ -764,6 +764,7 @@ x ≃ y =  {n : ℕ} -> ∣ ℝ.f x n - ℝ.f y n ∣ ≤ reciprocal(suc n) + re
     \item In 5.3, For the second part of the therorem, we had take non constructive approach, which was done by using Dec from Relation.Nullary, which is the law of excluded middle.
     \item In 5.4, We tried to construct real numbers as Cauchy sequences of Rational Numbers like in \cite{BB85}, where we encountered a problem while creating a reciprocal function $\mathbb{N} \to \mathbb{Q}$. The issue being in Agda the numerator requires to be a integer, and we did not find a way to introduce the integer 0. This remains unresolved.
 \end{itemize}
+\clearpage
 
 % ======== References =========
 \bibliographystyle{apalike} 

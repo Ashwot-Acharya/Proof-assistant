@@ -1,11 +1,11 @@
-\documentclass[aspectratio=169, compress, 12pt]{beamer}
+\documentclass[aspectratio=169, 12pt]{beamer}
 
 \usepackage[english]{babel}                 %%%%%%%%%%%%%%%%%% (EDIT LANGUAGE)
 
 \usepackage{Custom}                         %%%%%%%%%%%%%%%%%%    (EDIT NAMES)
 \usepackage{Custom-2}                         %%%%%%%%%%%%%%%%%%    (EDIT COLOURS)
 \usepackage{AuxiliaryFiles/AuxiliaryFiles}  %%%%%%%%%%%%%    (DO NOT EDIT)
-
+\usepackage{graphics}
 \begin{document}
 \TitlePage        
 \SectionPage    
@@ -83,38 +83,89 @@
     \item \textbf{User Interface}: IDEs and plugins for interactive, efficient proof development.
 \end{itemize}
 \end{frame}
+\subsection*{Kernel}
+\begin{frame}{Kernel: The Trusted Core}
+\begin{itemize}
+    \item The \textbf{kernel} is the minimal and most critical part of a proof assistant.
+    \item It enforces the logical rules of the underlying formal system (e.g., type theory).
+    \item Responsible for \textbf{validating every proof step} to guarantee correctness.
+    \item Ensures \textbf{soundness and trustworthiness}; the rest of the system depends on its integrity.
+    \item Typically very small and rigorously tested or formally verified to avoid bugs.
+    \item Example: Agda’s kernel is written in Haskell and integrates normalization to check definitional equality.
+\end{itemize}
+\end{frame}
+\subsection*{Tactic Engine}
+
+\begin{frame}{Tactic Engine: Proof Construction Assistant}
+\begin{itemize}
+    \item The \textbf{tactic engine} supports users in constructing proofs interactively.
+    \item It breaks complex proof goals into simpler subgoals using \textbf{proof strategies} called tactics.
+    \item Provides \textbf{automation} for common proof patterns, speeding up proof development.
+    \item Enables both \textbf{forward} and \textbf{backward} reasoning approaches.
+    \item Even fully automated tactics rely on the kernel for final verification.
+    \item Varies among assistants (Agda has minimal/no tactics, Coq and Lean have powerful tactic systems).
+\end{itemize}
+\end{frame}
+\subsection*{ Language}
+
+\begin{frame}{Formal Proof Language: Expressing Proofs Precisely}
+\begin{itemize}
+    \item This language allows expressing \textbf{definitions, propositions, and proofs} rigorously.
+    \item Typically a \textbf{dependently typed language} so logical properties can be encoded as types.
+    \item Provides \textbf{syntax and semantics} suitable for formal reasoning and machine checking.
+    \item Enables users to write \textbf{human-readable yet unambiguous} formal proofs.
+    \item Integrates smoothly with tactics and type checker to maintain correctness.
+    \item Example languages: Agda’s core language, Coq’s Gallina, Lean’s dependent type language.
+\end{itemize}
+\end{frame}
+\subsection*{Libraries}
+\begin{frame}{Libraries: Reusable Verified Foundations}
+\begin{itemize}
+    \item Extensive collections of \textbf{formalized mathematics and algorithms} supporting new developments.
+    \item Include \textbf{basic theories} such as arithmetic, algebra, logic, and set theory.
+    \item Enable users to \textbf{build on existing verified results} without re-proving foundations.
+    \item Libraries evolve and grow, fostering \textbf{collaboration and community sharing}.
+    \item Well-maintained libraries reduce duplication and improve proof assistant adoption.
+    \item Examples include Coq’s Standard Library, Agda Standard Library, Lean’s mathlib.
+\end{itemize}
+\end{frame}
+\subsection*{User Interface}
+\begin{frame}{User Interface: Proof Development Environment}
+\begin{itemize}
+    \item Provides \textbf{interactive tools} like IDEs, editor plugins, or command line interfaces.
+    \item Features include \textbf{syntax highlighting, error reporting, real-time proof state visualization,} and \textbf{auto-completion}.
+    \item Enhances \textbf{usability and productivity} for proof authors.
+    \item Supports \textbf{integration with tactics and proof language} for seamless workflow.
+    \item Examples: CoqIDE, Proof General, Emacs-mode for Agda, VS Code extensions.
+    \item A good interface lowers the learning curve and makes formalization more accessible.
+\end{itemize}
+\end{frame}
 \section{Comparative Study}
-\subsection*{Agda}
-\begin{frame}{Agda}
-\begin{itemize}
-    \item \textbf{Dependently typed functional programming language and proof assistant}.
-    \item No separate tactic layer---proofs are constructed explicitly and directly.
-    \item Uses \textbf{bidirectional type checking}, minimal kernel, and integrates normalization.
-    \item Emphasizes explicitness and formal clarity over automation.
-    \item Best suited for foundational work and educational purposes.
-\end{itemize}
+\begin{frame}{Comparative Table: Agda, Rocq (Coq), and Lean}
+  
+\begin{table}
+\centering
+\scalebox{0.75}{
+    \begin{tabular}{|p{2cm}|p{4cm}|p{4cm}|p{4cm}|}
+    \hline
+    \small \textbf{Component} &  \small \textbf{Agda} & \small \textbf{Rocq (Coq)} & \small \textbf{Lean} \\
+    \toprule
+    \small \textbf{Proof Style} & \footnotesize Explicit term-based, manual proof writing & \footnotesize Tactic-based, automated backward reasoning & \footnotesize Both tactic-based and term-style \\
+
+    \small \textbf{Kernel} & Minimal, written in Haskell, tight integration with normalization & Based on Calculus of Inductive Constructions (CIC), written in Coq (extracted to OCaml) & CIC-based, written in C++/C \\
+    \small \textbf{Type Checking} & Bidirectional, transparent, normalization by evaluation & Bidirectional, heavy conversion, strong automation & Bidirectional, smart elaboration (coercion, backtracking, overloading) \\
+
+    \small \textbf{Automation} & Limited (no tactics, minimal automation) & Extensive tactic engine and proof search & Advanced, seamless tactic/term mixing, smart elaborator \\
+
+    \small \textbf{Use Cases} & Foundations, education, dependently typed programming & Large/complex formalizations, industrial-scale proofs & Research, education, combinatorial/mathematical formalizations \\
+    \bottomrule
+    \end{tabular}
+}
+\end{table}
 \end{frame}
-\subsection*{Rocq (Coq)}
-\begin{frame}{Rocq (Coq)}
-\begin{itemize}
-    \item \textbf{Tactic-based interactive theorem prover} famous for large formalizations (e.g., Four Color Theorem).
-    \item Kernel is based on Calculus of Inductive Constructions (CIC), written in Coq and extracted to OCaml.
-    \item Proofs often built with backward reasoning using tactics---automation is heavily supported.
-    \item Strong type-checking with bidirectional algorithms and conversion checking.
-    \item Widely used for complex, real-world formal verification tasks.
-\end{itemize}
-\end{frame}
-\subsection*{Lean}
-\begin{frame}{Lean}
-\begin{itemize}
-    \item Developed at Microsoft, supports both \textbf{tactic-based and term-based} proofs.
-    \item Kernel based on the Calculus of Inductive Constructions, implemented in C++/C.
-    \item Allows seamless switching between tactic and term styles---user-friendly and flexible.
-    \item Smart elaborator with coercion, backtracking, and overloading.
-    \item Popular in research and education, especially for combinatorial and mathematical formalizations.
-\end{itemize}
-\end{frame}
+
 \section{Formalization Of Some proofs}
+\subsection*{}
 
 
 \input{AuxiliaryFiles/Thanks}  
