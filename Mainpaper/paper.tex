@@ -135,7 +135,6 @@ Date: August, 2025
 \end{center}
 \clearpage
 
-\addcontentsline{toc}{section}{\textbf{ABSTRACT}}  
 \clearpage
 
 \begin{center}
@@ -147,6 +146,7 @@ our understanding of the subject matter.
 
 
 \clearpage
+\addcontentsline{toc}{section}{\textbf{ABSTRACT}}  
 
 \begin{abstract}
 This report explores the theoretical foundations and working principles of proof assistants, with a focus on Agda. It introduces key concepts from logic, type theory, and the Curry–Howard correspondence that underlie formal verification. We discuss how proofs are treated as programs and propositions as types in dependently typed systems. A comparative study of proof assistants such as Agda, Coq (Rocq), and Lean is included, highlighting their kernel architectures and type-checking algorithms. Finally, we demonstrate formalization of selected logical proofs in Agda, reflecting on challenges and limitations encountered during implementation.
@@ -155,7 +155,27 @@ This report explores the theoretical foundations and working principles of proof
 
 
 
+{\small
 \tableofcontents
+}
+\newpage
+\section*{Notations}
+
+
+
+Throughout this paper, we adopt notation commonly used in type theory and lambda calculus. For clarity, we summarize nonstandard or overloaded symbols below:
+
+\begin{itemize}
+
+  \item $\Gamma \vdash A$ denotes that the judgment $A$ is derivable from the context $\Gamma$. 
+  \item We occasionally write $A \subseteq B$ to mean $A$ implies $B$, in the sense of logical entailment. This should not be confused with the subset relation.
+  \item $A + B$ denotes the coproduct (disjoint union/ sum) of types $A$ and $B$, given A and B are types.
+  \item $\Sigma x : A.\ B(x)$ is the dependent sum type (also written $\sum$), generalizing pairs and existential quantification.
+  \item $\Pi x : A.\ B(x)$ denotes the dependent product type (also written $\prod$), generalizing function types and universal quantification.
+  \item $\lambda x.\ e$ denotes a function abstraction mapping $x$ to $e$.
+  \item $x \mapsto y$ is used informally to denote functions sending $x$ to $y$.
+  \item Inference rules and derivations are written using proof trees, with premises above a horizontal bar and conclusions below.
+\end{itemize}
 \newpage
 
 \section{Introduction}
@@ -185,7 +205,7 @@ a machine. This project involves investigating this process.
 \subsection{Objectives}
 \begin{enumerate}
     \item To explore the correspondence between Proofs and Programs, Type Theory and Intuitionstic Logic.
-    \item To investigate a current existing proof assistants (Agda) and identify the mathematics behind it.
+    \item To investigate current existing proof assistants and identify the mathematics behind it.
     \item To formalize some selected proofs in Agda and demonstrate verification process.
 \end{enumerate}
 
@@ -285,7 +305,7 @@ For inference rules for Natural Deduction in Intuitionstic Logic See 2.1 \cite{P
 \textit{Propositions} \quad
 $A ::= P(t_1, \ldots, t_n) \mid A_1 \land A_2 \mid A_1 \supset A_2 \mid A_1 \lor A_2 \mid \neg A \mid \bot \mid \top \mid \forall x. A \mid \exists x. A$
 
- The main focus is that this new set of rules does not contain the double negation rule which is present in what we introduced in Section 2.1.1. \textbf {Example \ref{lem}} uses the Double negation rule in its proof, which we don't have now. This agrees to that Law of Excluded Middle does not work in Intuitionstic Logic. The method of proof by contradiction also relies on this rule, so constructivists omit it.\\
+ The main focus is that this new set of rules does not contain the double negation rule which is present in what we introduced in Section 2.1.1. \textbf {Proposition \ref{lem}} uses the Double negation rule in its proof, which we don't have now. This agrees to that Law of Excluded Middle does not work in Intuitionstic Logic. The method of proof by contradiction also relies on this rule, so constructivists omit it.\\
 These rules are revised with localized hypotheses i.e we use the above rules under a set of premises, and refer the derivation as "derived under a context". With introduction of contexts 
 $$Contexts  \ \Gamma ::= .|\Gamma,u: A$$
 [See 2.3 \cite{Pfenning2004}]
@@ -339,7 +359,7 @@ $\lambda x.t$ is same as $ \lambda y.t[x:=y]$
      This is substitution. During application all the instances of bound variable in the expression is replaced by the argument. Again referring above example $x^2$ becomes $3^2$.\\
      $(\lambda x.E) F$ is $E[x := F]$, where $E[x := F]$
 \end{enumerate}
-For comprehensive treatment of this topic, see \cite{Rojas2015}. And for the original formulation by Church \cite{}
+For comprehensive treatment of this topic, see \cite{Rojas2015}. And for the original formulation by Church \cite{church1936unsolvable}.
 
 
 
@@ -517,9 +537,9 @@ Agda  is a Dependently typed functional programming language and proof assistant
 In Dependently typed programming language there is no clear distinction between types and values , and types can depend on arbitary values and may appear as results of ordinary functions. 
 This feature of Dependently typed programs allows us to encode properties of values as type of proofs of that property, allowing us to use Dependent type programming as logic.  (Dependently Typed Programming in Agda) 
 
-Every agda file has a top level module which corresponds to name of the file and the main programs goes inside the top level module.[]
-Another key component of agda is pattern matching. Pattern matching is a mechanism for analysing the structure of values. When inductively defined  datatypes are introduced the
-pattern matching becomes even more powerful as patten matching on one value can give the information about another value (thesis) 
+Every agda file has a top level module which corresponds to name of the file and the main programs goes inside the top level module.
+Another key component of agda is pattern matching. Pattern matching is a mechanism for analysing the structure of values. 
+
 
 \subsubsection {Kernel}
 Agda's Kernel is written in Haskell. With no seperate tactic layer, the kernel is directly involved in all proof construction making it minimalistic yet more rigid. It tightly integrates normalization, which is a direct application of the Normalization Theorem in \cite{martinlof1972intuitionistic_theory}.
@@ -665,7 +685,7 @@ module props where
 
 open import Agda.Primitive using (Level; lzero)
 
-open import Data.Product using (Sigma; _,_)
+open import Data.Product using (Σ; _,_)
 
 variable
   l : Level
