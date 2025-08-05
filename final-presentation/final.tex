@@ -16,7 +16,105 @@
 
 \input{AuxiliaryFiles/SettingBackup}     
 
-
+\section{Proof Assistants} 
+\subsection*{What are proof assistant}
+\begin{frame}{What are proof assistant}
+    proof assistant, are software more specifically a type of programming language thats allows us to 
+    formalize mathematical proofs in computer for digital verification. 
+\end{frame}
+\subsection*{Why digital verification is needed?}
+\begin{frame}{Need of digital verification}
+    \begin{itemize}
+        \item faster computation for complex problems
+        \item many exceptional cases can be explored which would take mathematicians  long time \\
+           \indent  \footnotesize ex:   The Kepler Conjecture's proof , which was so complex that verifying it manually would take 20 person-years, but proof assistants made this verification feasible and fast. 
+    \end{itemize}
+\end{frame}
+\section{Logical foundation}
+\begin{frame}
+    \begin{itemize}
+    \item Based on logic (natural deduction, intuitionistic logic), $\lambda$-calculus, and type theory.
+    \item Curry–Howard Correspondence:
+    \begin{itemize}
+        \item Propositions $\leftrightarrow$ Types
+        \item Proofs $\leftrightarrow$ Programs
+    \end{itemize}
+    \item Dependently Typed Languages: Types can depend on values, enabling encoding of properties and proofs.
+\end{itemize}
+\end{frame}
+\subsection*{Naturl deduction}
+\begin{frame}{Natural Deduction}
+\begin{itemize}
+    \item \textbf{Natural Deduction} is a rule-based system for deriving conclusions from assumptions in logic.
+    \item Instead of using exhaustive truth tables, proofs are built step-by-step using inference rules.
+    \item Example: Proving from $A \land (A \rightarrow \bot)$ that $\bot$ (contradiction) can be derived.
+    \item Basis for how proof assistants check the logical structure of proofs.
+\end{itemize}
+\end{frame}
+\subsection*{Ins}
+\begin{frame}{Intuitionistic Logic}
+\begin{itemize}
+    \item \textbf{Intuitionistic Logic} formalizes constructive mathematics, where a statement is only true if a proof can be constructed.
+    \item Omits some classical logic principles, such as the Law of Excluded Middle.
+    \item Stronger requirement: to prove existence, a method or algorithm must be given.
+    \item Proof assistants leverage this constructive approach for digital verification.
+\end{itemize}
+\end{frame}
+\subsection*{$\lambda$-Calculus}
+\begin{frame}{$\lambda$-Calculus and Type Theory}
+\begin{itemize}
+    \item \textbf{$\lambda$-Calculus}: A foundational system for defining and applying functions using abstraction and application.
+    \item \textbf{Type Theory}: Assigns types to every term; ensures correctness of operations.
+    \item \textbf{Curry--Howard Correspondence}: 
+    \begin{itemize}
+        \item Propositions $\leftrightarrow$ Types
+        \item Proofs $\leftrightarrow$ Programs
+    \end{itemize}
+    \item \emph{Dependent types} allow types to depend on values, expressing complex logical properties.
+\end{itemize}
+\end{frame}
+\section{Architecture of proof assistant}
+\begin{frame}{Architecture of a Proof Assistant}
+\begin{itemize}
+    \item \textbf{Kernel}: Minimal, trustworthy codebase enforcing logical rules and validating proofs.
+    \item \textbf{Tactic Engine}: Helps build and automate proofs step by step.
+    \item \textbf{Formal Proof Language}: Rigorously expresses definitions, statements, and proofs.
+    \item \textbf{Libraries}: Collections of verified mathematical foundations for reuse.
+    \item \textbf{User Interface}: IDEs and plugins for interactive, efficient proof development.
+\end{itemize}
+\end{frame}
+\section{Comparative Study}
+\subsection*{Agda}
+\begin{frame}{Agda}
+\begin{itemize}
+    \item \textbf{Dependently typed functional programming language and proof assistant}.
+    \item No separate tactic layer---proofs are constructed explicitly and directly.
+    \item Uses \textbf{bidirectional type checking}, minimal kernel, and integrates normalization.
+    \item Emphasizes explicitness and formal clarity over automation.
+    \item Best suited for foundational work and educational purposes.
+\end{itemize}
+\end{frame}
+\subsection*{Rocq (Coq)}
+\begin{frame}{Rocq (Coq)}
+\begin{itemize}
+    \item \textbf{Tactic-based interactive theorem prover} famous for large formalizations (e.g., Four Color Theorem).
+    \item Kernel is based on Calculus of Inductive Constructions (CIC), written in Coq and extracted to OCaml.
+    \item Proofs often built with backward reasoning using tactics---automation is heavily supported.
+    \item Strong type-checking with bidirectional algorithms and conversion checking.
+    \item Widely used for complex, real-world formal verification tasks.
+\end{itemize}
+\end{frame}
+\subsection*{Lean}
+\begin{frame}{Lean}
+\begin{itemize}
+    \item Developed at Microsoft, supports both \textbf{tactic-based and term-based} proofs.
+    \item Kernel based on the Calculus of Inductive Constructions, implemented in C++/C.
+    \item Allows seamless switching between tactic and term styles---user-friendly and flexible.
+    \item Smart elaborator with coercion, backtracking, and overloading.
+    \item Popular in research and education, especially for combinatorial and mathematical formalizations.
+\end{itemize}
+\end{frame}
+\section{Formalization Of Some proofs}
 
 
 \input{AuxiliaryFiles/Thanks}  
