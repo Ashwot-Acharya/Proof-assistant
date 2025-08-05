@@ -721,7 +721,11 @@ deMorganOtherWay (no np) (no nq) _ = inj₁ np  -- or inj₂ nq
 
 \section{Challenges and Workarounds}
 
-
+\begin{itemize}
+    \item In 5.1, we define natural numbers and their equality (When can we say two numbers are equal) from scratch. Defining the basic objects in every proof we write is tedious, therefore we use Agda's Standard Library and use pre defined and some pre-proven results to work further.
+    \item In 5.3, the forward direction was do able with constructive principles. But for the other way, we used law of excluded middle by importing Dec from Relation.Nullary.
+    \item 
+\end{itemize}
 
 
 
