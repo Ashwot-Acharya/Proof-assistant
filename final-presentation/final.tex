@@ -19,29 +19,31 @@
 \section{Proof Assistants} 
 \subsection*{What are proof assistant}
 \begin{frame}{What are proof assistant}
-    proof assistant, are software more specifically a type of programming language thats allows us to 
+    Proof assistant, are software more specifically a type of programming language thats allows us to 
     formalize mathematical proofs in computer for digital verification. 
 \end{frame}
 \subsection*{Why digital verification is needed?}
 \begin{frame}{Need of digital verification}
     \begin{itemize}
-        \item faster computation for complex problems
-        \item many exceptional cases can be explored which would take mathematicians  long time \\
+        \item Fast and Efficient 
+        \item Many cases can be explored which would take mathematicians  long time \\
            \indent  \footnotesize ex:   The Kepler Conjecture's proof , which was so complex that verifying it manually would take 20 person-years, but proof assistants made this verification feasible and fast. 
-    \end{itemize}
+    
+        \item What if you don't use proof assistants? ABC conjecture
+        \end{itemize}
+
 \end{frame}
-\section{Logical foundation}
+
+
 \begin{frame}
-    \begin{itemize}
-    \item Based on logic (natural deduction, intuitionistic logic), $\lambda$-calculus, and type theory.
-    \item Curry–Howard Correspondence:
-    \begin{itemize}
-        \item Propositions $\leftrightarrow$ Types
-        \item Proofs $\leftrightarrow$ Programs
-    \end{itemize}
-    \item Dependently Typed Languages: Types can depend on values, enabling encoding of properties and proofs.
-\end{itemize}
+    \begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{pa.jpeg}
+\end{figure}
 \end{frame}
+
+\section{Foundations}
+
 \subsection*{Naturl deduction}
 \begin{frame}{Natural Deduction}
 \begin{itemize}
@@ -51,26 +53,44 @@
     \item Basis for how proof assistants check the logical structure of proofs.
 \end{itemize}
 \end{frame}
+\begin{frame}
+    \begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{nd.jpeg}
+\end{figure}
+\end{frame}
+
 \subsection*{Ins}
 \begin{frame}{Intuitionistic Logic}
 \begin{itemize}
-    \item \textbf{Intuitionistic Logic} formalizes constructive mathematics, where a statement is only true if a proof can be constructed.
-    \item Omits some classical logic principles, such as the Law of Excluded Middle.
+    \item \textbf{Intuitionistic Logic} Also called Constructive Logic, reflects principles of constructive mathematics, where a statement is only true if a proof can be constructed.
+    \item Omits some classical logic rules, such as the Law of Excluded Middle.
     \item Stronger requirement: to prove existence, a method or algorithm must be given.
     \item Proof assistants leverage this constructive approach for digital verification.
 \end{itemize}
+\end{frame}
+ 
+
+\begin{frame}
+    \begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{nid.jpeg}
+
+\end{figure}
+Inference Rules for Intuitionistic Logic
 \end{frame}
 \subsection*{$\lambda$-Calculus}
 \begin{frame}{$\lambda$-Calculus and Type Theory}
 \begin{itemize}
     \item \textbf{$\lambda$-Calculus}: A foundational system for defining and applying functions using abstraction and application.
     \item \textbf{Type Theory}: Assigns types to every term; ensures correctness of operations.
+         \item \emph{Dependent types} allow types to depend on values, expressing complex logical properties.
+
     \item \textbf{Curry--Howard Correspondence}: 
     \begin{itemize}
         \item Propositions $\leftrightarrow$ Types
         \item Proofs $\leftrightarrow$ Programs
     \end{itemize}
-    \item \emph{Dependent types} allow types to depend on values, expressing complex logical properties.
 \end{itemize}
 \end{frame}
 \section{Architecture of proof assistant}
