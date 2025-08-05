@@ -7,7 +7,9 @@
 **/*.nav 
 **/*.out
 **/*.snm
-
+**/*.cb 
+**/*.cb2 
+**/*.vrb
 **/*.aux 
 **/*.fdb_latexmk 
 **/*.synctex.gz
