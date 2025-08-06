@@ -204,7 +204,7 @@ a machine. This project involves investigating this process.
 
 \subsection{Objectives}
 \begin{enumerate}
-    \item To explore the correspondence between Proofs and Programs, Type Theory and Intuitionstic Logic.
+    \item To explore the correspondence between Proofs and Programs, Type Theory and Intuitionistic Logic.
     \item To investigate current existing proof assistants and identify the mathematics behind it.
     \item To formalize some selected proofs in Agda and demonstrate verification process.
 \end{enumerate}
@@ -293,19 +293,19 @@ With the rules in Section 2.3 of \cite{Alrubyli2021}  we now present proofs of s
 \end{proposition}
 
 The \textbf{soundness} and \textbf{completeness} of this system are discussed in Section 3.1 and 3.2 \cite{Alrubyli2021}. 
-\subsubsection{Intuitionstic Logic}
-Intuitionstic Logic was introduced to formalize the constructive method to do mathematics. Unlike in Classical Logic a statement is True if we can construct a proof for it and to claim a statement is False, again a proof of its falsity is required. This allows the case that some statements are not provable. 
+\subsubsection{Intuitionistic Logic}
+Intuitionistic Logic was introduced to formalize the constructive method to do mathematics. Unlike in Classical Logic a statement is True if we can construct a proof for it and to claim a statement is False, again a proof of its falsity is required. This allows the case that some statements are not provable. 
 To show something exists one must provide an method or algorithm to construct it. Proof Assistants leverage this fact.
-The constructive view of doing mathematics gives a stricter criteria. Intuitionstic  Logic can be obtained by restricting certain parts of Classical Logic, like the Law of Excluded Middle.
+The constructive view of doing mathematics gives a stricter criteria. Intuitionistic  Logic can be obtained by restricting certain parts of Classical Logic, like the Law of Excluded Middle.
 
-For inference rules for Natural Deduction in Intuitionstic Logic See 2.1 \cite{Pfenning2004}, here the language is slightly different from above, we have
+For inference rules for Natural Deduction in Intuitionistic Logic See 2.1 \cite{Pfenning2004}, here the language is slightly different from above, we have
 \\
 \textit{Terms} \quad $t ::= x \mid a \mid f(t_1, \ldots, t_n)$
 \\
 \textit{Propositions} \quad
 $A ::= P(t_1, \ldots, t_n) \mid A_1 \land A_2 \mid A_1 \supset A_2 \mid A_1 \lor A_2 \mid \neg A \mid \bot \mid \top \mid \forall x. A \mid \exists x. A$
 
- The main focus is that this new set of rules does not contain the double negation rule which is present in what we introduced in Section 2.1.1. \textbf {Proposition \ref{lem}} uses the Double negation rule in its proof, which we don't have now. This agrees to that Law of Excluded Middle does not work in Intuitionstic Logic. The method of proof by contradiction also relies on this rule, so constructivists omit it.\\
+ The main focus is that this new set of rules does not contain the double negation rule which is present in what we introduced in Section 2.1.1. \textbf {Proposition \ref{lem}} uses the Double negation rule in its proof, which we don't have now. This agrees to that Law of Excluded Middle does not work in Intuitionistic Logic. The method of proof by contradiction also relies on this rule, so constructivists omit it.\\
 These rules are revised with localized hypotheses i.e we use the above rules under a set of premises, and refer the derivation as "derived under a context". With introduction of contexts 
 $$Contexts  \ \Gamma ::= .|\Gamma,u: A$$
 [See 2.3 \cite{Pfenning2004}]
@@ -418,7 +418,7 @@ This can be taken as a function type with $Vec:\mathbb{N} \to Type$ , which take
 And similarly as with simply typed $\lambda$-Calculus we can have lambda terms with dependent types. 
 
 \subsection{Proof Terms and The Curry Howard Correspondence}
-    Let us treat every proposition or Logical Formula as a Type, and their proofs as the term inhabiting it. Intuitionstically, we interpret a proposition being true if we present a proof for it. Here, it will be true if there is a term (proof) inhabiting the type (proposition).
+    Let us treat every proposition or Logical Formula as a Type, and their proofs as the term inhabiting it. Intuitionistically, we interpret a proposition being true if we present a proof for it. Here, it will be true if there is a term (proof) inhabiting the type (proposition).
     p:P is now interpreted as p is a proof of P. In \cite{How} the strong correspondence between intuitionistic derivation and lambda terms was mentioned. In essence the corrrespondence is as follows,
     \begin{table}[h]
 \centering
@@ -441,7 +441,7 @@ Existential Quantifier ($\exists x. A(x)$) & Dependent Sum ($\Sigma x : A. B(x)$
 \end{tabular}
 \caption{Curry–Howard Correspondence: Logic, Computation, and Type Theory}
 \end{table}\\
-The use of dependent product and sum for the Quantifier highlights the necessity of Dependent Type Theory. The rules  (Proof Terms only), equivalent to Deduction rules of Intuitionstic Logic are in Section 2.4 of \cite{Pfenning2004}. Note that this does not contain the rule for predicates. While writing a proof in a proof assistant our reasoning follows deduction rules of this kind. 
+The use of dependent product and sum for the Quantifier highlights the necessity of Dependent Type Theory. The rules  (Proof Terms only), equivalent to Deduction rules of Intuitionistic Logic are in Section 2.4 of \cite{Pfenning2004}. Note that this does not contain the rule for predicates. While writing a proof in a proof assistant our reasoning follows deduction rules of this kind. 
 Then to write a  program (equivalent to proof) of the proposition $A \to B \to A$, we need to construct a function that takes term of type A , term of type B and returns term of type A, that is $\lambda a{:}A.\lambda b{:}B.t{:}A $ which proceeds as
 \begin{proposition}
     $A \to B \to A$
@@ -459,7 +459,7 @@ Then to write a  program (equivalent to proof) of the proposition $A \to B \to A
 
 
  \subsection{Martin-Löf Type Theory }
-    Martin-Löf Type Theory is the formal logic system that was developed to support constructive mathematics. It's often referred to as Intuitionstic Type Theory. It carries the use of dependent types and is the backbone of Proof Assistants.\\
+    Martin-Löf Type Theory is the formal logic system that was developed to support constructive mathematics. It's often referred to as Intuitionistic Type Theory. It carries the use of dependent types and is the backbone of Proof Assistants.\\
         The following types are also valid in this system.
         \begin{itemize}
             \item $\prod$-Type : The dependent function type, as mentioned in Table 1. it supports the interpretation of Universal Quantifier.
