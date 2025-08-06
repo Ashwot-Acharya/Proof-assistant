@@ -505,8 +505,7 @@ kernel before acceptance,system integrity is maintained [Nipkow et al., 2002][De
 
 \subsection{Formal Proof language}
 Proof assistants offer a dedicated programming language designed to express definitions, statements and proofs. These languages are typically Dependently typed,
-and allows implicit argument . they are highly readable and rigorous. Integration with tactic scripting enables a smooth blend of automated and manual proof development [Barras et al.,
-1997][Agda Team, 2023][Lean Development Group, 2024].
+and allows implicit argument . they are highly readable and rigorous. Integration with tactic scripting enables a smooth blend of automated and manual proof development \cite{}
 
 \subsection{Type checker and inference engine}
 The type checker enforces logical consistency by validating the written expression , checking if it meets the system's typing
@@ -516,12 +515,12 @@ complex inference algorithms.
 \subsection{User Interface} 
 Effective user interfaces (UIs) enable seamless interaction with the proof assistant. 
 Modern UIs include integrated development environments (IDEs) or editor plugins that provide syntax highlighting, error diagnostics, real-time proof state visualization,
-and automated tactic suggestion. Such interfaces significantly enhance productivity and make formal methods more accessible to a wider audience [CoqIDE, 2025][Isabelle/jEdit, 2023].
+and automated tactic suggestion. Such interfaces significantly enhance productivity and make formal methods more accessible to a wider audience \cite{isabelle2023}
 \subsection{Formal Libraries}
 Proof assistants come with extensive, rigorously verified libraries that
 encapsulate fundamental theories (e.g., arithmetic, set theory, algebra), supporting rapid development of
 complex formalizations without reinventing foundational results.
-These libraries grow continuously and provide a shared repository of reusable components vital for large-scale verification projects [Coq Standard Library, 2025][Mathlib, 2025][Isabelle Archive of Formal Proofs].
+These libraries grow continuously and provide a shared repository of reusable components vital for large-scale verification projects \cite{rocqstdlib:v9.0.0}
 
 
 \begin{figure}[h!]
@@ -535,10 +534,10 @@ These libraries grow continuously and provide a shared repository of reusable co
 \subsection{ Agda}
 Agda  is a Dependently typed functional programming language and proof assistant. Extension of Martin-Lof's Type theory. (agda documentation) 
 In Dependently typed programming language there is no clear distinction between types and values , and types can depend on arbitary values and may appear as results of ordinary functions. 
-This feature of Dependently typed programs allows us to encode properties of values as type of proofs of that property, allowing us to use Dependent type programming as logic.  (Dependently Typed Programming in Agda) 
+This feature of Dependently typed programs allows us to encode properties of values as type of proofs of that property, allowing us to use Dependent type programming as logic. \cite{norell2008agda}
 
 Every agda file has a top level module which corresponds to name of the file and the main programs goes inside the top level module.
-Another key component of agda is pattern matching. Pattern matching is a mechanism for analysing the structure of values. 
+Another key component of agda is pattern matching. Pattern matching is a mechanism for analysing the structure of values. \cite{norell2007thesis}
 
 
 \subsubsection {Kernel}
