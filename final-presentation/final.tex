@@ -30,7 +30,7 @@
            \indent  \footnotesize ex:   The Kepler Conjecture's proof , which was so complex that verifying it manually would take 20 person-years, but proof assistants made this verification feasible and fast. 
     
         \item What if you don't use proof assistants? ABC conjecture
-        \end{itemize}
+    \end{itemize}
 
 \end{frame}
 
@@ -44,13 +44,11 @@
 
 \section{Foundations}
 
-\subsection*{Naturl deduction}
 \begin{frame}{Natural Deduction}
 \begin{itemize}
     \item \textbf{Natural Deduction} is a rule-based system for deriving conclusions from assumptions in logic.
     \item Instead of using exhaustive truth tables, proofs are built step-by-step using inference rules.
     \item Example: Proving from $A \land (A \rightarrow \bot)$ that $\bot$ (contradiction) can be derived.
-    \item Basis for how proof assistants check the logical structure of proofs.
 \end{itemize}
 \end{frame}
 \begin{frame}
@@ -60,7 +58,6 @@
 \end{figure}
 \end{frame}
 
-\subsection*{Ins}
 \begin{frame}{Intuitionistic Logic}
 \begin{itemize}
     \item \textbf{Intuitionistic Logic} Also called Constructive Logic, reflects principles of constructive mathematics, where a statement is only true if a proof can be constructed.
@@ -79,20 +76,120 @@
 \end{figure}
 Inference Rules for Intuitionistic Logic
 \end{frame}
-\subsection*{$\lambda$-Calculus}
-\begin{frame}{$\lambda$-Calculus and Type Theory}
+\begin{frame}{Lambda Calculus}
+\textbf{What is Lambda Calculus?}
 \begin{itemize}
-    \item \textbf{$\lambda$-Calculus}: A foundational system for defining and applying functions using abstraction and application.
-    \item \textbf{Type Theory}: Assigns types to every term; ensures correctness of operations.
-         \item \emph{Dependent types} allow types to depend on values, expressing complex logical properties.
-
-    \item \textbf{Curry--Howard Correspondence}: 
+  \item A formal model of computation by Alonzo Church
+  \item Lambda Terms:
     \begin{itemize}
-        \item Propositions $\leftrightarrow$ Types
-        \item Proofs $\leftrightarrow$ Programs
+        \item Variables: $x$, $y$, $z$
+        \item Abstraction: $\lambda x.E$
+        \item Application: $(\lambda x.E)F$
     \end{itemize}
 \end{itemize}
 \end{frame}
+\begin{frame}
+\textbf{Examples}
+\begin{itemize}
+    \item $\lambda x.x^2$ is a function
+    \item $(\lambda x.x^2)(3) \rightarrow 9$
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Type Theory \& Simply Typed Lambda Calculus}
+\textbf{Type Theory Basics}
+\begin{itemize}
+  \item Assigns types to terms: $1 : \mathbb{N}$, $+ : \mathbb{N} \times \mathbb{N} \to \mathbb{N}$
+  \item Typing is decidable
+\end{itemize}
+
+\textbf{Type Categories}
+\begin{itemize}
+  \item Base Types: $\mathbb{N}$, Bool, $\bot$
+  \item Arrow Types: $f : A \to B$
+  \item Product Types: $\langle a, b \rangle : A \times B$
+  \item Sum Types: $a : A + B$
+\end{itemize}
+\end{frame}
+\begin{frame}
+   \textbf{Typed Lambda Calculus}
+\begin{itemize}
+  \item $(\lambda x : \mathbb{N}.x^2) : \mathbb{N} \to \mathbb{N}$
+\end{itemize}
+ \textbf{Dependent Types}
+\begin{itemize}
+  \item Types depend on values: $Vec(n)$
+  \item Indexed types, predicate representation
+  \item $Vec : \mathbb{N} \to Type$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{ Curry–Howard Correspondence}
+    \begin{itemize}
+  \item sometimes referred as Curry Howard Isomorphism
+  \item A connection between logic, computation, and type theory
+  \item Also known as the \textit{proofs-as-programs} and \textit{propositions-as-types} principle
+\end{itemize}
+
+\textbf{Core Idea}
+\begin{itemize}
+  \item A \textbf{proposition} corresponds to a \textbf{type}
+  \item A \textbf{proof} of the proposition is a \textbf{program} (term) of that type
+  \item Proof checking is equivalent to type checking
+  \item Proof normalization corresponds to program evaluation
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\textbf{Curry–Howard Correspondence}
+\begin{tabular}{|c|c|c|}
+\hline
+Logic & Type Theory & Programming \\
+\hline
+Proposition & Type & - \\
+Proof & Term & Program \\
+Implication $A \to B$ & $A \to B$ & $\lambda$-abstraction \\
+Conjunction $A \land B$ & $A \times B$ & Pair \\
+Disjunction $A \lor B$ & $A + B$ & Tagged union \\
+Falsehood $\bot$ & Empty Type & No term \\
+Universal $\forall x.A(x)$ & $\Pi x:A.B(x)$ & Function over types \\
+Existential $\exists x.A(x)$ & $\Sigma x:A.B(x)$ & Dependent pair \\
+\hline
+\end{tabular}
+
+\end{frame}
+
+    \begin{frame}{Martin-Löf Type Theory}
+\textbf{What is it?}
+\begin{itemize}
+  \item A formal system for constructive mathematics
+  \item Also known as Intuitionistic Type Theory
+  \item Backbone of modern Proof Assistants
+\end{itemize}
+
+\textbf{Core Types}
+\begin{itemize}
+  \item \textbf{} ($\Pi$-type): Dependent function type, $\forall x:A.B(x)$
+  \item \textbf{} ($\Sigma$-type): Dependent sum type, $\exists x:A.B(x)$
+  \item \textbf{Identity Type}: Internal equality between terms
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+  \textbf{Type Universes}
+\begin{itemize}
+  \item Types have types: $1 : \mathbb{N}, \mathbb{N} : Type, Type : \cdots$
+  \item Not like sets within sets — avoids paradoxes
+  \item Enables reasoning and abstraction over types themselves
+  
+\end{itemize}  
+\end{frame}
+
+
 \section{Architecture of proof assistant}
 \begin{frame}{Architecture of a Proof Assistant}
 \begin{itemize}
@@ -185,7 +282,15 @@ Inference Rules for Intuitionistic Logic
 \end{frame}
 
 \section{Formalization Of Some proofs}
-\subsection*{}
+\subsection*{Defining Natural Numbers} 
+    \begin{frame}[fragile]
+        \frametitle{Eg: Defining Natural Numbers}
+        \begin{verbatim}
+           data N : Set where 
+                Zero : N 
+                suc : N -> N
+        \end{verbatim}
+    \end{frame}
 
 
 \input{AuxiliaryFiles/Thanks}  
