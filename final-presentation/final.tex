@@ -6,6 +6,27 @@
 \usepackage{Custom-2}                         %%%%%%%%%%%%%%%%%%    (EDIT COLOURS)
 \usepackage{AuxiliaryFiles/AuxiliaryFiles}  %%%%%%%%%%%%%    (DO NOT EDIT)
 \usepackage{graphics}
+
+\DeclareUnicodeCharacter{2200}{\ensuremath{\forall}}    % ∀
+\DeclareUnicodeCharacter{2113}{\ensuremath{\ell}}       % ℓ
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}% →
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}     % ×
+\DeclareUnicodeCharacter{228E}{\ensuremath{\uplus}}   % ⊎
+\DeclareUnicodeCharacter{22A5}{\ensuremath{\bot}}       % ⊥
+\DeclareUnicodeCharacter{00AC}{\ensuremath{\neg}}       % ¬
+\DeclareUnicodeCharacter{2081}{\textsubscript{1}}       % ₁
+\DeclareUnicodeCharacter{2082}{\textsubscript{2}}       % ₂
+\DeclareUnicodeCharacter{03BB}{\ensuremath{\lambda}}    % λ
+\DeclareUnicodeCharacter{03A3}{\ensuremath{\Sigma}}   % Σ
+\DeclareUnicodeCharacter{211A}{\ensuremath{\mathbb{Q}}} % ℚ
+\DeclareUnicodeCharacter{2223}{\ensuremath{\mid}}       % ∣
+\DeclareUnicodeCharacter{2264}{\ensuremath{\leq}}       % ≤
+\DeclareUnicodeCharacter{2261}{\ensuremath{\equiv}}     % ≡
+\DeclareUnicodeCharacter{21D2}{\ensuremath{\Rightarrow}}% ⇒
+\DeclareUnicodeCharacter{2243}{\ensuremath{\simeq}}     % ≃
+\DeclareUnicodeCharacter{2124}{\ensuremath{\mathbb{Z}}} % ℤ
+\DeclareUnicodeCharacter{2115}{\ensuremath{\mathbb{N}}} % ℕ
+\DeclareUnicodeCharacter{211D}{\ensuremath{\mathbb{R}}} % ℝ
 \begin{document}
 \TitlePage        
 \SectionPage    
@@ -281,7 +302,7 @@ Existential $\exists x.A(x)$ & $\Sigma x:A.B(x)$ & Dependent pair \\
 \end{table}
 \end{frame}
 
-\section{Formalization Of Some proofs}
+\section{Formalization Of Some Proofs}
 \subsection*{Defining Natural Numbers} 
     \begin{frame}[fragile]
         \frametitle{Eg: Defining Natural Numbers}
@@ -291,6 +312,83 @@ Existential $\exists x.A(x)$ & $\Sigma x:A.B(x)$ & Dependent pair \\
                 suc : N -> N
         \end{verbatim}
     \end{frame}
+\subsection*{simple properities  } 
+\begin{frame}[fragile]
+    \frametitle{Eg: Some mathematical properities }
+    \begin{verbatim}
+        Equality and Transitivity: 
+
+        data _==_ { A : Set } ( x : A ) : A -> Set where
+            refl : x == x
+
+        trans : { A : Set } { x y z : A}
+            -> x == y
+            -> y == z
+            -> x == z
+            trans refl refl = refl
+    \end{verbatim}
+\end{frame}
+\subsection{Formalization Of DeMorgan's Law} 
+\begin{frame}[fragile]
+    \frametitle{DeMorgan's Law in agda}
+   \footnotesize \begin{verbatim}
+DeMorgan’s Law
+open import Agda.Primitive using (Level; lzero)
+open import Data.Product using (_×_; _,_)
+open import Data.Sum using (_⊎_; inj1; inj2)
+open import Relation.Nullary using (Dec; yes; no)
+open import Data.Empty using (⊥; ⊥-elim)
+open import Relation.Nullary.Negation using (¬_)
+--One Direction
+deMorganOneWay : ∀ {ℓ} {P Q : Set ℓ} → (¬ P) ⊎ (¬ Q) → ¬ (P × Q)
+deMorganOneWay (inj1 np) (p , q) = np p
+deMorganOneWay (inj2 nq) (p , q) = nq q
+
+    \end{verbatim}
+    
+\end{frame}
+\begin{frame}[fragile]
+
+    \small \begin{verbatim}
+Converse, Requires Non Constructive Assumptions
+deMorganOtherWay :
+∀ {ℓ} {P Q : Set ℓ}
+→ Dec P
+→ Dec Q
+→ ¬ (P × Q)
+→ (¬ P) ⊎ (¬ Q)
+deMorganOtherWay (yes p) _ notPQ = inj2 (λ q → notPQ (p , q))
+deMorganOtherWay (no np) (yes q) _ = inj1 np
+deMorganOtherWay (no np) (no nq) _ = inj1 np -- or inj2 nq
+    \end{verbatim}
+    
+\end{frame}
+\section{ Limitations}
+\begin{frame}{}
+    \begin{itemize}
+        \item Issue while implementing Real Numbers Construcitvely.
+        \item Bidirectional Typechecking Algorithm isn't discussed rigorously.
+        
+
+    \end{itemize}
+\end{frame} 
+
+
+
+
+
+\begin{frame}{References}
+\footnotesize
+\begin{itemize}
+  \item William Howard. \textit{The formula-as-types notion of construction}, 1969.
+  \item Per Martin-Löf. \textit{An Intuitionistic Theory of Types}, 1972.
+  \item Jan Willem Klop, Alejandro Ríos. \textit{Introduction to Lambda Calculus}, Rojas, 2015.
+  \item Herman Geuvers. \textit{Proof Assistants: History, Ideas and Future}, 2009.
+  \item Frank Pfenning. \textit{Intuitionistic Logic: Proof Theory}, Lecture Notes, 2004.
+ \item Sozeau, M. et al. (2025). \textit{Correct and complete type checking and certified erasure for Coq, in Coq}, J. ACM, 72(1).
+  \item Team, R. P. D. (2025). \textit{Rocq Prover Reference Manual: Core Language}. Accessed: 2025-08-05.
+\end{itemize}
+\end{frame}
 
 
 \input{AuxiliaryFiles/Thanks}  
